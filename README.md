@@ -11,32 +11,6 @@ Godmin differs from tools like [ActiveAdmin](http://activeadmin.info/) and [Rail
 
 ![Screenshot](https://raw.githubusercontent.com/varvet/godmin/master/screenshot.png)
 
-- [Installation](#installation)
-	- [Standalone installation](#standalone-installation)
-	- [Engine installation](#engine-installation)
-	- [Installation artefacts](#installation-artefacts)
-- [Getting started](#getting-started)
-- [Resources](#resources)
-	- [Scopes](#scopes)
-	- [Filters](#filters)
-	- [Batch actions](#batch-actions)
-	- [Resource fetching, building and saving](#resource-fetching-building-and-saving)
-	- [Redirecting](#redirecting)
-	- [Pagination](#pagination)
-	- [Exporting](#exporting)
-- [Views](#views)
-  - [Forms](#forms)
-  - [Navigation](#navigation)
-- [Authentication](#authentication)
-	- [Built in authentication](#built-in-authentication)
-	- [Shared authentication](#shared-authentication)
-- [Authorization](#authorization)
-- [Localization](#localization)
-- [JavaScript](#javascript)
-- [Plugins](#plugins)
-- [Contributors](#contributors)
-- [License](#license)
-
 ## Installation
 
 Godmin supports two common admin scenarios:
@@ -53,11 +27,13 @@ rails new sandbox -m https://raw.githubusercontent.com/varvet/godmin/master/temp
 Use for admin-only applications, or for architectures where the admin lives in its own app. E.g. you want to access the admin section at `localhost:3000`.
 
 Add the gem to the application's `Gemfile`:
+
 ```ruby
 gem "godmin"
 ```
 
 Bundle, then run the install generator:
+
 ```sh
 $ bundle install
 $ bin/rails generate godmin:install
@@ -69,26 +45,31 @@ Godmin should be up and running at `localhost:3000`.
 Use when the admin is part of the same codebase as the main application. E.g. you want to access the admin section at `localhost:3000/admin`.
 
 Generate a [mountable engine](http://guides.rubyonrails.org/engines.html):
+
 ```sh
 $ bin/rails plugin new admin --mountable
 ```
 
 Add the engine to the application's `Gemfile`:
+
 ```ruby
 gem "admin", path: "admin"
 ```
 
 Mount the engine in the application's `config/routes.rb`:
+
 ```ruby
 mount Admin::Engine, at: "admin"
 ```
 
 Add the gem to the engine's gemspec, `admin/admin.gemspec`:
+
 ```ruby
 s.add_dependency "godmin", "~> x.x.x"
 ```
 
 Bundle, then run the install generator within the scope of the engine, i.e. note the leading `admin/`:
+
 ```sh
 $ bundle install
 $ admin/bin/rails generate godmin:install
@@ -101,6 +82,7 @@ Godmin should be up and running at `localhost:3000/admin`
 Installing Godmin does a number of things to the Rails application.
 
 The application controller is modified as such:
+
 ```ruby
 class ApplicationController < ActionController::Base
   include Godmin::ApplicationController
