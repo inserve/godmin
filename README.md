@@ -19,6 +19,7 @@ Godmin supports two common admin scenarios:
 2. Engine installation
 
 If you want to set up an example app that you can play around with, run the following:
+
 ```sh
 rails new sandbox -m https://raw.githubusercontent.com/varvet/godmin/master/template.rb
 ```
