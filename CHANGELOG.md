@@ -4,6 +4,9 @@
 Features
 - Adds support for custom ordering of columns (https://github.com/varvet/godmin/pull/168)
 
+Bug fixes:
+- Fixes so an empty string is not sent for multiselect filters (https://github.com/varvet/godmin/pull/169)
+
 ### 1.1.0 - 2015-12-08
 Features
 - Adds locale for pt-BR (Brazilian Portuguese) (https://github.com/varvet/godmin/pull/141)
