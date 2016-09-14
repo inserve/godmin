@@ -1,6 +1,6 @@
 <% if errors.present? %>
-  <div class="alert alert-danger">
-    <ul class="list-unstyled">
+  <div class="form-errors">
+    <ul>
       <% errors.full_messages.each do |error| %>
         <li><%= error %></li>
       <% end %>

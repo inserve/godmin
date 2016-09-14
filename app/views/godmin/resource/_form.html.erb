@@ -1,10 +1,27 @@
 <%= form_for @resource do |f| %>
-  <% @resource_service.attrs_for_form.each do |attribute| %>
-    <% if f.object.class.reflect_on_association(attribute) %>
-      <%= f.association attribute %>
-    <% else %>
-      <%= f.input attribute %>
-    <% end %>
-  <% end %>
-  <%= f.submit %>
+	<md-card layout-padding>
+		<md-card-title>
+			<md-card-title-text>
+				<% if params['action'] == 'edit' %>
+					<h3>Ändring av: <%= @resource %> </h3>
+				<% else %>
+					<h3>Skapande av <%= @resource_class.model_name.human(count: 2) %> </h3>
+				<% end %>
+			</md-card-title-text>
+		</md-card-title>
+		<md-card-content>
+	  <% @resource_service.attrs_for_form.each do |attribute| %>
+		  	<md-input-container>
+			    <% if f.object.class.reflect_on_association(attribute) %>
+			      <%= f.association attribute %>
+			    <% else %>
+			      <%= f.input attribute %>
+			    <% end %>
+		  	</md-input-container>
+	  <% end %>
+		</md-card-content>
+		<md-card-actions>
+  		<md-button class="md-primary" type="submit">Save</md-button>
+		</md-card-actions>
+	</md-card>
 <% end %>

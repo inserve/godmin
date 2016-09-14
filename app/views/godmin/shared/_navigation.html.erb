@@ -1,0 +1,109 @@
+<!--============================================================
+=            TODO: find a cleaner way of separating the Toolbar and Sidenav versions of the links            =
+==============================================================-->
+
+<% if side %>
+  <ul>
+<% end %>
+
+  <% if side %>
+      <li>
+  <% end %>
+      <%= link_to "<md-button>Home</md-button>".html_safe, root_path %>
+  <% if side %>
+        <md-divider></md-divider>
+      </li>
+  <% end %>
+
+  <% if side %>
+      <li>
+  <% end %>
+      <%= link_to "<md-button>Fordon</md-button>".html_safe, vehicles_path %>
+  <% if side %>
+        <md-divider></md-divider>
+      </li>
+  <% end %>
+
+  <% if side %>
+      <li>
+  <% end %>
+      <%= link_to "<md-button>Fordonslänkar</md-button>".html_safe, shortcuts_path %>
+  <% if side %>
+        <md-divider></md-divider>
+      </li>
+  <% end %>
+
+  <% if side %>
+      <li>
+  <% end %>
+      <%= link_to "<md-button>Offerter</md-button>".html_safe, offers_path %>
+  <% if side %>
+        <md-divider></md-divider>
+      </li>
+  <% end %>
+
+  <% if side %>
+      <li>
+  <% end %>
+      <%= link_to "<md-button>VäxellådorSpec</md-button>".html_safe, gearbox_specs_path %>
+  <% if side %>
+        <md-divider></md-divider>
+      </li>
+  <% end %>
+
+  <% if side %>
+      <li>
+  <% end %>
+      <%= link_to "<md-button>Växellådor</md-button>".html_safe, gearboxes_path %>
+  <% if side %>
+        <md-divider></md-divider>
+      </li>
+  <% end %>
+
+  <% if side %>
+      <li>
+  <% end %>
+      <%= link_to "<md-button>Oljeprodukter</md-button>".html_safe, oils_path %>
+  <% if side %>
+        <md-divider></md-divider>
+      </li>
+  <% end %>
+
+  <% if side %>
+      <li>
+  <% end %>
+      <%= link_to "<md-button>Användare</md-button>".html_safe, users_path %>
+  <% if side %>
+        <md-divider></md-divider>
+      </li>
+  <% end %>
+
+  <% if side %>
+      <li>
+  <% end %>
+      <%= link_to "<md-button>Prislistor</md-button>".html_safe, pricelists_path %>
+  <% if side %>
+        <md-divider></md-divider>
+      </li>
+  <% end %>
+
+  <% if side %>
+      <li>
+  <% end %>
+      <%= link_to "<md-button>Priser</md-button>".html_safe, prices_path %>
+  <% if side %>
+        <md-divider></md-divider>
+      </li>
+  <% end %>
+
+  <% if side %>
+    <% unless current_user.blank? %>
+      <li>
+        <%= link_to('<md-button>Logga ut</md-button>'.html_safe, main_app.destroy_user_session_path, :method => :delete) %>
+      </li>
+    <% end %>
+  <% end %>
+
+<% if side %>
+  </ul>
+<% end %>

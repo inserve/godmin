@@ -10,71 +10,342 @@
  *
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "bootstrap-datetimepicker";
-@import "selectize";
-@import "selectize.bootstrap3";
 
-body {
-  margin-bottom: 20px;
+
+$red: #e40230;
+$brand-color-1: rgba(0,127,145,1);
+$brand-color-2: rgba(0, 127, 145, 0.6);
+$dark-red:#8a2247;
+$yellow: #ffd618;
+$gray-1: #efe8d4;
+$gray-2: #b0ac9e;
+$gray-3: #88857b;
+$gray-4: #5c5a52;
+$gray-6: #383630;
+
+body, html {
+  background: rgb(250,250,250);
 }
 
-#login {
-  margin-top: 20px;
-}
+// div[ng-app="admin"] {
+//   height: 100%;
+// }
 
-#breadcrumb {
-  .dropdown:before {
-    content: " ";
+.img-crop {
+  overflow: hidden;
+  height: 300px;
+  width: 100%;
+  img {
+    width: 100%;
+    margin-top: -130px;
   }
 }
 
-#scopes {
-  margin-bottom: 20px;
+.mw {
+  margin-bottom: 1em;
+  max-width: 80% !important;
+  width: 100%;
+}
+
+.form-errors {
+    background: rgba(246,51,51,0.2);
+    border: 1px solid rgba(246,51,51,0.4);
+    color: rgba(196,52,1,0.8);
+    padding: 1em;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+}
+
+@media screen and (max-width: 960px) {
+  max-width: 100%;
+}
+
+md-sidenav {
+  .brand-logo {
+    color: #FFFFFF;
+  }
+  div {
+    ul {
+      padding-left: 0;
+      margin-top : 0;
+      li {
+        a {
+          width: 100%;
+          display: block;
+          color: $brand-color-1;
+          .md-button {
+            margin: 0;
+            padding: 1em;
+            text-align: left;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.md-toolbar-tools {
+  .md-button {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.has-error {
+  .form-control {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.form-control {
+  outline: none;
+  box-shadow: none;
+  border: 0;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+input[type='submit'], .filter-btns a {
+  &:focus, &:hover, &:active:focus {
+    outline: none;
+  }
+  outline: none;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  min-height: 36px;
+  min-width: 88px;
+  line-height: 36px;
+  vertical-align: middle;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-grid-row-align: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 3px;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 0;
+  padding: 0 6px;
+  margin: 6px 8px;
+  background: $brand-color-1;
+  color: currentColor;
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  font-style: inherit;
+  font-variant: inherit;
+  font-family: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  color: rgba(250,250,250,0.87);
+  background-color: $brand-color-1;
+  -webkit-transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+  transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+
+  &:hover {
+    background-color: $brand-color-2;
+    color: rgba(250,250,250,0.90);
+  }
 }
 
 #filters {
-  .filter .control-label {
-    display: block;
-  }
-  .filter .form-control {
-    min-width: 170px;
-  }
-  .filter .form-control.selectize-control {
-    height: 34px;
-  }
-  .filter .form-control.selectize-control.single .item {
-    padding-right: 25px;
+  md-input-container {
+    margin-bottom: 0;
+    margin-top: 40px;
   }
 }
 
-#actions {
-  @include clearfix();
-  margin-bottom: 20px;
-}
-
-#table {
-  td {
-    vertical-align: middle;
+.pagination-wrapper {
+  margin-top: 1em;
+  .pagination {
+    li {
+      margin-right: -8px;
+      display: inline-block;
+      list-style: none;
+      &.active a {
+        background: $brand-color-1;
+        color: rgba(255,255,255,0.9);
+        text-decoration: none;
+      }
+      a {
+        padding: 1em;
+        color: $brand-color-1;
+        margin-right: 3px;
+        border-radius: 0;
+        line-height: 24px;
+        text-decoration: none;
+        &:hover {
+          cursor: pointer;
+          background-color: $brand-color-2;
+        }
+      }
+    }
+    .pagination-icon {
+      a {
+        line-height: 1.42857143 !important;
+        md-icon {
+          color: $brand-color-1;
+        }
+      }
+    }
   }
-  td .btn-group {
-    display: flex;
+}
+
+.md-table {
+  .actions {
+    text-align: right !important;
+    padding-right: 40px !important;
+  }
+  a {
+    color: $brand-color-1;
+    text-decoration: none;
+    &:hover {
+      color: $brand-color-2;
+    }
+  }
+  .md-body {
+    .md-row {
+      transition: background 0.25s;
+      &:nth-child(odd) {
+        background: rgba(200,200,200,0.15);
+      }
+      &:hover {
+        background: rgba(0,0,0,0.1);
+      }
+    }
+  }
+  .md-table-buttons {
+    float: right;
+    .delete-btn {
+      md-icon {
+        color: #d9534f;
+      }
+    }
   }
 }
 
-.pagination {
-  margin: 0 0 10px 0;
-}
 
-.pagination-entries {
-  line-height: 35px;
-}
 
-.highlight {
-  -moz-animation: highlight 3s;
-  -webkit-animation: highlight 3s;
-}
+/***************************************************************************
+*                      Custom Materialistic Breadcrumb                     *
+****************************************************************************/
 
-@-moz-keyframes highlight { from { background: #fffbcc; } to { background: none; } }
-@-webkit-keyframes highlight { from { background: #fffbcc; } to { background: none; } }
+/***************************************************************************
+*                   <div class="md">                                       *
+*                     <div class="md-breadcrumb flat">                     *
+*                       <a href="#" class="active">JavaScript</a>          *
+*                       <a href="#">AngularJS</a>                          *
+*                       <a href="#">CoffeeScript</a>                       *
+*                       <a href="#">TypeScript</a>                         *
+*                       <a href="#" class="active">Angular 2</a>           *
+*                     </div>                                               *
+*                   </div>                                                 *
+****************************************************************************/
+
+
+.md {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 638px;
+}
+.md-breadcrumb {
+  text-align: center;
+  display: inline-block;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+  overflow: hidden;
+  border-radius: 5px;
+  counter-reset: flag;
+  height: 36px;
+}
+.md-breadcrumb > a {
+  text-decoration: none;
+  outline: none;
+  display: block;
+  float: left;
+  font-size: 12px;
+  line-height: 36px;
+  color: #fff;
+  padding: 0 10px 0 60px;
+  position: relative;
+}
+.md-breadcrumb > a:first-child {
+  padding-left: 46px;
+  border-radius: 5px 0 0 5px;
+}
+.md-breadcrumb > a:first-child::before {
+  left: 14px;
+}
+.md-breadcrumb > a:last-child {
+  border-radius: 0 5px 5px 0;
+  padding-right: 20px;
+}
+.md-breadcrumb > a:last-child::after {
+  content: none;
+}
+.md-breadcrumb > a::before {
+  content: counter(flag);
+  counter-increment: flag;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  margin: 8px 0;
+  position: absolute;
+  top: 0;
+  left: 30px;
+  font-weight: bold;
+}
+.md-breadcrumb > a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -18px;
+  width: 36px;
+  height: 36px;
+  transform: scale(0.707) rotate(45deg);
+  z-index: 1;
+  box-shadow: 2px -2px 0 2px rgba(200, 246, 253, 0.8);
+  border-radius: 0 5px 0 50px;
+}
+.flat a,
+.flat a::after {
+  background: #fff;
+  color: #007F91;
+  transition: all 0.5s;
+}
+.flat a::before {
+  background: #fff;
+  box-shadow: 0 0 0 1px $brand-color-1;
+}
+.flat a:hover,
+.flat a.active,
+.flat a:hover::after,
+.flat a.active::after {
+  background: $brand-color-1;
+}
+.flat a.active:hover {
+  background: rgba(0, 127, 145, 0.8);
+}
+.flat a:hover,
+.flat a.active {
+  color: #fff;
+}
+.flat a:hover::before,
+.flat a.active::before {
+  color: #007F91;
+}
