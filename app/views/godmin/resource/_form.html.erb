@@ -11,13 +11,13 @@
 		</md-card-title>
 		<md-card-content>
 	  <% @resource_service.attrs_for_form.each do |attribute| %>
-		  	<md-input-container>
 			    <% if f.object.class.reflect_on_association(attribute) %>
 			      <%= f.association attribute %>
 			    <% else %>
-			      <%= f.input attribute %>
+		  			<md-input-container>
+			      	<%= f.input attribute %>
+		  			</md-input-container>
 			    <% end %>
-		  	</md-input-container>
 	  <% end %>
 		</md-card-content>
 		<md-card-actions>

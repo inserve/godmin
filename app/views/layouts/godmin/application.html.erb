@@ -2,10 +2,7 @@
   <div ng-app="godmin" ng-controller="GodminController" layout="column" layout-fill>
     <md-toolbar class="md-hue-2" layout-align="center center">
       <div class="md-toolbar-tools" layout="row" layout-fill>
-        <h2 hide-xs hide-sm hide-md>
-          <span class="brand-logo"><%= t("godmin.title") %></span>
-        </h2>
-        <md-button hide-gt-md ng-click="openSidenav()" class="md-icon-button" aria-label="Settings">
+        <md-button hide-gt-md ng-click="toggleSidenav()" class="md-icon-button" aria-label="Settings">
           <md-icon md-svg-icon="menu"></md-icon>
         </md-button>
         <span hide-xs hide-sm hide-md layout-fill layout="row">
@@ -19,12 +16,10 @@
       </div>
     </md-toolbar>
     <md-sidenav hide-gt-md md-component-id="left" class="md-sidenav-left">
-      <md-toolbar>
-        <span class="md-toolbar-tools">
-          <h2>
-            <span class="brand-logo"><%= t("godmin.title") %></span>
-          </h2>
-        </span>
+      <md-toolbar layout-align="center start">
+        <md-button class="md-icon-button" ng-click="toggleSidenav()">
+          <md-icon md-svg-icon="close"></md-icon>
+        </md-button>
       </md-toolbar>
       <div>
         <%= render partial: File.join(engine_wrapper.namespaced_path, "shared/navigation"), locals: {side: true} %>

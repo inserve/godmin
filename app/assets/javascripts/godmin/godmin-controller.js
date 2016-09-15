@@ -12,27 +12,51 @@ app.config(['$mdThemingProvider', '$mdIconProvider', '$sceDelegateProvider', fun
 
   $mdIconProvider.defaultIconSet('//godmin-material.s3-website-eu-west-1.amazonaws.com/icons/mdi.svg');
 
-  // Extend the cyan theme with a different color
-  var cyan = $mdThemingProvider.extendPalette('cyan', {
-    '500': 'rgba(0, 127, 145, 1)',
-  });
-  var cyanAccent = $mdThemingProvider.extendPalette('cyan', {
-    'A200': 'rgba(200, 246, 253, 0.8)',
-    'contrastDefaultColor': 'light'
-  });
+  // // Extend the cyan theme with a different color
+  // var cyan = $mdThemingProvider.extendPalette('cyan', {
+  //   '500': 'rgba(0, 127, 145, 1)',
+  // });
+  // var cyanAccent = $mdThemingProvider.extendPalette('cyan', {
+  //   'A200': 'rgba(200, 246, 253, 0.8)',
+  //   'contrastDefaultColor': 'light'
+  // });
 
-  // Register the new color palette map with the name SpartacusCyan
-  $mdThemingProvider.definePalette('SpartacusCyan', cyan);
-  $mdThemingProvider.definePalette('SpartacusCyanAccent', cyanAccent);
-  // Use that theme for the primary intentions
-  $mdThemingProvider.theme('default')
-    .primaryPalette('SpartacusCyan')
-    .accentPalette('SpartacusCyanAccent');
-  $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
+  // // Register the new color palette map with the name SpartacusCyan
+  // $mdThemingProvider.definePalette('SpartacusCyan', cyan);
+  // $mdThemingProvider.definePalette('SpartacusCyanAccent', cyanAccent);
+  // // Use that theme for the primary intentions
+  // $mdThemingProvider.theme('default')
+  //   .primaryPalette('SpartacusCyan')
+  //   .accentPalette('SpartacusCyanAccent');
+  // $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
 }]);
 
-app.controller('GodminController', ['$scope', '$mdSidenav', function($scope, $mdSidenav) {
-  $scope.openSidenav = function() {
+app.controller('GodminController', ['$scope', '$mdSidenav', '$mdDialog', function($scope, $mdSidenav, $mdDialog) {
+  $scope.toggleSidenav = function() {
     $mdSidenav('left').toggle();
+  }
+
+  $scope.showDialog = function(ev, contentId) {
+    $mdDialog.show({
+      controller: DialogController,
+      contentElement: contentId,
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose: true
+    });
+  };
+
+  function DialogController($scope, $mdDialog) {
+    $scope.hide = function() {
+      $mdDialog.hide();
+    };
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+
+    $scope.answer = function(answer) {
+      $mdDialog.hide(answer);
+    };
   }
 }])
