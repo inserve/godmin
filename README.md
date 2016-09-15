@@ -37,19 +37,19 @@ If you require dialogs (modals) in your custom CRUD views you can write a Dialog
 
 ```
   <div style="visibility: hidden">
-      <div class="md-dialog-container" id="myDialogID">
-        <md-dialog layout-padding>
-          <md-dialog-content>
-            <!-- Dialog body -->
-          </md-dialog-content>
-          <md-dialog-actions>
-            <!-- hide() hides the currently open Dialog (same as clicking outside) -->
-            <md-button ng-click="hide()">
-              Close
-            </md-button>
-          </md-dialog-actions>
-        </md-dialog>
-      </div>
+    <div class="md-dialog-container" id="myDialogID">
+      <md-dialog layout-padding>
+        <md-dialog-content>
+          <!-- Dialog body -->
+        </md-dialog-content>
+        <md-dialog-actions>
+          <!-- hide() hides the currently open Dialog (same as clicking outside) -->
+          <md-button ng-click="hide()">
+            Close
+          </md-button>
+        </md-dialog-actions>
+      </md-dialog>
+    </div>
   </div>
 ```
 
