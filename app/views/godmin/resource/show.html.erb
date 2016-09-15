@@ -1,10 +1,25 @@
 <%= render partial: "breadcrumb" %>
 
-<table class="table table-striped">
-  <% @resource_service.attrs_for_show.each do |attr| %>
-    <tr>
-      <th><%= @resource_class.human_attribute_name(attr) %></th>
-      <td><%= column_value(@resource, attr) %></td>
-    </tr>
-  <% end %>
-</table>
+<md-card layout-padding layout-margin layout-fill class="crud" flex layout-gt-sm="row" layout="column">
+  <md-list flex>
+    <md-card-title>
+	    <md-card-title-text>
+	      <span class="md-headline"><md-icon>visibility</md-icon><span class="title"><%= @resource.to_s %></span></span>
+	    </md-card-title-text>
+	  </md-card-title>
+  	<% @resource_service.attrs_for_show.each do |attr| %>
+		<md-list-item class="md-2-line">
+      <md-icon class="md-avatar-icon gmd-primary">adjust</md-icon>
+      <div class="md-list-item-text" ng-class="md-offset">
+        <h3><%= @resource_class.human_attribute_name(attr) %></h3>
+        <% if attr == :url %>
+        	<a href="#"><%= column_value(@resource, attr) %></a>
+      	<% else %>
+        	<p><%= column_value(@resource, attr) %></p>
+        <% end %>
+      </div>
+    </md-list-item>
+  	<% end %>
+  </md-list>
+ </md-card>
+

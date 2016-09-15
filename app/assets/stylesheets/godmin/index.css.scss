@@ -12,24 +12,23 @@
  */
 
 
-$red: #e40230;
-$brand-color-1: rgba(0,127,145,1);
-$brand-color-2: rgba(0, 127, 145, 0.6);
-$dark-red:#8a2247;
-$yellow: #ffd618;
-$gray-1: #efe8d4;
-$gray-2: #b0ac9e;
-$gray-3: #88857b;
-$gray-4: #5c5a52;
-$gray-6: #383630;
+@import 'variables';
 
 body, html {
-  background: rgb(250,250,250);
+  background: $background-hue-1;
 }
 
 // div[ng-app="admin"] {
 //   height: 100%;
 // }
+
+md-icon.gmd-primary {
+  color: $primary-color-hue-1;
+  &.md-avatar-icon {
+    background: $primary-color-hue-1;
+    color: $white;
+  }
+}
 
 .img-crop {
   overflow: hidden;
@@ -75,7 +74,7 @@ md-sidenav {
         a {
           width: 100%;
           display: block;
-          color: $brand-color-1;
+          color: $primary-color-hue-1;
           .md-button {
             margin: 0;
             padding: 1em;
@@ -86,6 +85,10 @@ md-sidenav {
       }
     }
   }
+}
+
+md-content {
+  background-color: transparent;
 }
 
 .md-toolbar-tools {
@@ -138,7 +141,7 @@ input[type='submit'], .filter-btns a {
   border: 0;
   padding: 0 6px;
   margin: 6px 8px;
-  background: $brand-color-1;
+  background-color: $primary-color-hue-1;
   color: currentColor;
   white-space: nowrap;
   text-transform: uppercase;
@@ -150,14 +153,12 @@ input[type='submit'], .filter-btns a {
   text-decoration: none;
   overflow: hidden;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
-  color: rgba(250,250,250,0.87);
-  background-color: $brand-color-1;
+  color: $background-hue-1;
   -webkit-transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
   transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
 
   &:hover {
-    background-color: $brand-color-2;
-    color: rgba(250,250,250,0.90);
+    background-color: $secondary-color-hue-3;
   }
 }
 
@@ -176,20 +177,20 @@ input[type='submit'], .filter-btns a {
       display: inline-block;
       list-style: none;
       &.active a {
-        background: $brand-color-1;
-        color: rgba(255,255,255,0.9);
+        background: $primary-color-hue-1;
+        color: $grey-hue-1;
         text-decoration: none;
       }
       a {
         padding: 1em;
-        color: $brand-color-1;
+        color: $primary-color-hue-1;
         margin-right: 3px;
         border-radius: 0;
         line-height: 24px;
         text-decoration: none;
         &:hover {
           cursor: pointer;
-          background-color: $brand-color-2;
+          background-color: $secondary-color-hue-3;
         }
       }
     }
@@ -197,7 +198,7 @@ input[type='submit'], .filter-btns a {
       a {
         line-height: 1.42857143 !important;
         md-icon {
-          color: $brand-color-1;
+          color: $primary-color-hue-1;
         }
       }
     }
@@ -210,20 +211,20 @@ input[type='submit'], .filter-btns a {
     padding-right: 40px !important;
   }
   a {
-    color: $brand-color-1;
+    color: $primary-color-hue-1;
     text-decoration: none;
     &:hover {
-      color: $brand-color-2;
+      color: $secondary-color-hue-3;
     }
   }
   .md-body {
     .md-row {
       transition: background 0.25s;
       &:nth-child(odd) {
-        background: rgba(200,200,200,0.15);
+        background: $grey-hue-4;
       }
       &:hover {
-        background: rgba(0,0,0,0.1);
+        background: $grey-hue-2;
       }
     }
   }
@@ -231,8 +232,26 @@ input[type='submit'], .filter-btns a {
     float: right;
     .delete-btn {
       md-icon {
-        color: #d9534f;
+        color: $error-color;
       }
+    }
+  }
+}
+
+.crud {
+  .md-headline {
+    text-align: center;
+  }
+}
+
+md-list-item {
+  .md-2-line>.md-no-style>md-icon:first-child, .md-2-line>md-icon:first-child {
+    -webkit-align-self: center;
+    align-self: center;
+  }
+  .md-list-item-text {
+    a {
+      font-size: 14px;
     }
   }
 }
@@ -279,7 +298,7 @@ input[type='submit'], .filter-btns a {
   float: left;
   font-size: 12px;
   line-height: 36px;
-  color: #fff;
+  color: $white;
   padding: 0 10px 0 60px;
   position: relative;
 }
@@ -319,33 +338,33 @@ input[type='submit'], .filter-btns a {
   height: 36px;
   transform: scale(0.707) rotate(45deg);
   z-index: 1;
-  box-shadow: 2px -2px 0 2px rgba(200, 246, 253, 0.8);
+  box-shadow: 2px -2px 0 2px $grey-hue-2;
   border-radius: 0 5px 0 50px;
 }
 .flat a,
 .flat a::after {
-  background: #fff;
-  color: #007F91;
+  background: $white;
+  color: $primary-color-hue-1;
   transition: all 0.5s;
 }
 .flat a::before {
-  background: #fff;
-  box-shadow: 0 0 0 1px $brand-color-1;
+  background: $white;
+  box-shadow: 0 0 0 1px $primary-color-hue-1;
 }
 .flat a:hover,
 .flat a.active,
 .flat a:hover::after,
 .flat a.active::after {
-  background: $brand-color-1;
+  background: $primary-color-hue-1;
 }
 .flat a.active:hover {
-  background: rgba(0, 127, 145, 0.8);
+  background: $primary-color-hue-2;
 }
 .flat a:hover,
 .flat a.active {
-  color: #fff;
+  color: $white;
 }
 .flat a:hover::before,
 .flat a.active::before {
-  color: #007F91;
+  color: $primary-color-hue-1;
 }
