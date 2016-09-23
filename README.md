@@ -1,6 +1,6 @@
 # Godmin Material
 
-This is a fork of the Godmin admin framework with the purpose of implementing Material Design through the Angular Material framework. Angular is only used to bootstrap and include Angular Material. We include the libraries via CDN now but this will hopefully be changed to use a package manager such as npm in the future.
+This is a fork of the Godmin *(version 1.3.0)* admin framework with the purpose of implementing Material Design through the Angular Material framework. Angular is only used to bootstrap and include Angular Material. We include the libraries via CDN now but this will hopefully be changed to use a package manager such as npm in the future.
 
 ## Configuration
 
