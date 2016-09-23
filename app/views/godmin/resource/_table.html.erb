@@ -2,7 +2,7 @@
   <table md-table>
     <thead md-head>
       <tr md-row>
-        <% if @resource_service.batch_action_map.present? %>
+        <% if @resource_service.include_batch_actions? %>
           <th md-column></th>
         <% end %>
         <% @resource_service.attrs_for_index.each do |attr| %>
@@ -16,7 +16,7 @@
     <tbody md-body>
       <% @resources.each do |resource| %>
         <tr md-row data-resource-id="<%= resource.id %>" class="<%= "highlight" if flash[:updated_ids] && flash[:updated_ids].include?(resource.id) %>">
-          <% if @resource_service.batch_action_map.present? %>
+          <% if @resource_service.include_batch_actions? %>
             <td md-cell align="center" data-behavior="batch-actions-checkbox-container">
               <%= check_box_tag "batch_action[items][#{resource.id}]", nil, nil,
                 data: { behavior: "batch-actions-checkbox" } %>
