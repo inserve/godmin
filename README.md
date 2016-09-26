@@ -4,6 +4,22 @@
 
 This is a fork of the Godmin admin framework with the purpose of implementing Material Design through the Angular Material framework in Godmin without disrupting the automatic view generation. Angular is only used to bootstrap and include Angular Material. We include the libraries via CDN now but this will hopefully be changed to use a package manager such as npm in the future.
 
+
+## Installation
+
+- Include Godmin-Material in your Gemfile: `gem "godmin", github: "inserve/godmin-material", branch: "master"`
+- If you haven't already, change your `application.css` to `application.scss`
+  - Add these two lines to your `application.scss`:
+
+    ```
+      @import "godmin/variables";
+      @import "godmin/index";
+    ```
+- Run `bundle`
+- Start your Rails app and try out your fresh materialistic admin interface!
+
+---
+
 ## Configuration
 
 ### SASS color overrides
@@ -12,7 +28,7 @@ All the SASS variables can be found in [app/assets/stylesheets/godmin/variables.
 
 and you can override them like so:
 
-- Create or copy the Godmin-Material variables.scss in /yourapp/app/assets/stylesheets/
+- Create or copy the Godmin-Material variables.scss inside /yourapp/app/assets/stylesheets/
 
 `in /yourapp/app/assets/stylesheets/application.scss`
 
@@ -64,4 +80,4 @@ To have a trigger for the dialog simply place a button wherever you want it with
 ---
 
 
-#### for further help check [Godmins' documentation](https://github.com/varvet/godmin)
+#### for further help check [Godmins' official documentation](https://github.com/varvet/godmin)
