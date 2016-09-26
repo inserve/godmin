@@ -1,42 +1,14 @@
-<<<<<<< HEAD
-<div id="breadcrumb">
-  <ol class="breadcrumb">
-    <% if @resource_parents %>
-      <% @resource_parents.each do |parent| %>
-        <li>
-          <%= link_to parent.class.model_name.human(count: 2), parent.class %>
-        </li>
-        <li>
-          <%= link_to parent.to_s, parent %>
-        </li>
-      <% end %>
-    <% end %>
-=======
+
 <div id="md" layout-margin layout="row" layout-align="space-between">
   <div class="md-breadcrumb flat">
->>>>>>> 15f8a511992705148c01d6911bd5e8eb6d3317b9
+
     <% if action_name == "index" %>
         <a class="active">
-          <%= @resource_class.model_name.human(count: 2).pluralize %>
+          <%= link_to @resource_class.model_name.human(count: 2), [*@resource_parents, @resource_class] %>
         </a>
     </div>
     <% else %>
-<<<<<<< HEAD
-      <li>
-        <%= link_to @resource_class.model_name.human(count: 2), [*@resource_parents, @resource_class] %>
-      </li>
-      <li class="active">
-        <% if @resource.new_record? %>
-          <%= t("helpers.submit.create", model: @resource_class.model_name.human) %>
-        <% else %>
-          <%= @resource.to_s %>
-        <% end %>
-      </li>
-      <% if @resource.persisted? %>
-        <%= render partial: "breadcrumb_actions" %>
-      <% end %>
-=======
-        <%= link_to @resource_class.model_name.human(count: 2).pluralize, @resource_class %>
+        <%= link_to @resource_class.model_name.human(count: 2).pluralize, [*@resource_parents, @resource_class] %>
         <a class="active">
           <% if @resource.new_record? %>
             <%= t("helpers.submit.create", model: @resource_class.model_name.human).pluralize %>
@@ -70,7 +42,6 @@
           <% end %>
         </md-menu-content>
       </md-menu>
->>>>>>> 15f8a511992705148c01d6911bd5e8eb6d3317b9
     <% end %>
   <% end %>
 </div>
