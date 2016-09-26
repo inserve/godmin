@@ -15,6 +15,12 @@
 @import 'variables';
 
 .godmin-material-administration {
+
+  md-toolbar.md-default-theme.md-hue-2:not(.md-menu-toolbar), md-toolbar.md-hue-2:not(.md-menu-toolbar) {
+    background-color: $primary-color-hue-1;
+    color: $grey-hue-1;
+  }
+
   md-content {
     background: $background-hue-1;
   }
