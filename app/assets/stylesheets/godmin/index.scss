@@ -30,9 +30,9 @@
   .md-button.md-raised.md-primary {
     color: $grey-hue-1;
     background-color: $primary-color-hue-1;
-    &:hover {
-      background-color: $primary-color-hue-2;
-    }
+  }
+  .md-button.md-raised.md-primary:hover {
+    background-color: $primary-color-hue-2;
   }
 
   md-icon.gmd-primary {
@@ -170,7 +170,7 @@
     transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
 
     &:hover {
-      background-color: $secondary-color-hue-1;
+      background-color: $primary-color-hue-2;
     }
   }
 
