@@ -28,7 +28,7 @@ app.config(['$mdThemingProvider', '$mdIconProvider', '$sceDelegateProvider', fun
   // $mdThemingProvider.theme('default')
   //   .primaryPalette('SpartacusCyan')
   //   .accentPalette('SpartacusCyanAccent');
-  // $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
+  $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
 }]);
 
 app.controller('GodminController', ['$scope', '$mdSidenav', '$mdDialog', function($scope, $mdSidenav, $mdDialog) {
