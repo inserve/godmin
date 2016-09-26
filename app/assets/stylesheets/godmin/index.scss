@@ -11,9 +11,6 @@
  *= require_self
  */
 
-
-@import 'variables';
-
 .godmin-material-administration {
 
   md-toolbar.md-default-theme.md-hue-2:not(.md-menu-toolbar), md-toolbar.md-hue-2:not(.md-menu-toolbar) {
@@ -33,6 +30,13 @@
     &:hover {
       background-color: $primary-color-hue-2;
     }
+  }
+
+  md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label, md-input-container:not(.md-input-invalid).md-input-focused label, md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon, md-input-container:not(.md-input-invalid).md-input-focused md-icon {
+    color: $primary-color-hue-1;
+  }
+  md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input, md-input-container:not(.md-input-invalid).md-input-focused .md-input, md-input-container.md-default-theme:not(.md-input-invalid).md-input-resized .md-input, md-input-container:not(.md-input-invalid).md-input-resized .md-input {
+    border-color: $primary-color-hue-1;
   }
 
   md-icon.gmd-primary {
@@ -59,7 +63,7 @@
   }
   @media screen and (min-width: 1500px) {
     .mw {
-      max-width: 80%;
+      max-width: 1500px;
     }
   }
 
