@@ -1,4 +1,4 @@
-Godmin [![Gem Version](http://img.shields.io/gem/v/godmin.svg)](https://rubygems.org/gems/godmin)
+#### Godmin [![Gem Version](http://img.shields.io/gem/v/godmin.svg)](https://rubygems.org/gems/godmin)
 
 # Godmin Material
 
