@@ -55,8 +55,12 @@
 
   .mw {
     margin-bottom: 1em;
-    max-width: 80% !important;
     width: 100%;
+  }
+  @media screen and (min-width: 1500px) {
+    .mw {
+      max-width: 80%;
+    }
   }
 
   .form-errors {
@@ -69,10 +73,6 @@
         padding: 0;
         margin: 0;
       }
-  }
-
-  @media screen and (max-width: 960px) {
-    max-width: 100%;
   }
 
   md-sidenav {
