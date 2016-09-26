@@ -1,37 +1,37 @@
-<div id="table" class="table-responsive">
-  <table class="table table-bordered table-hover">
-    <thead>
-      <tr>
-        <% if @resource_service.batch_action_map.present? %>
-          <th></th>
+<md-table-container>
+  <table md-table>
+    <thead md-head>
+      <tr md-row>
+        <% if @resource_service.include_batch_actions? %>
+          <th md-column></th>
         <% end %>
         <% @resource_service.attrs_for_index.each do |attr| %>
-          <th class="column-<%= attr %>">
+          <th md-column class="column-<%= attr %>">
             <%= column_header attr %>
           </th>
         <% end %>
-        <th></th>
+        <th md-column class="actions">Actions</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody md-body>
       <% @resources.each do |resource| %>
-        <tr data-resource-id="<%= resource.id %>" class="<%= "highlight" if flash[:updated_ids] && flash[:updated_ids].include?(resource.id) %>">
-          <% if @resource_service.batch_action_map.present? %>
-            <td align="center">
+        <tr md-row data-resource-id="<%= resource.id %>" class="<%= "highlight" if flash[:updated_ids] && flash[:updated_ids].include?(resource.id) %>">
+          <% if @resource_service.include_batch_actions? %>
+            <td md-cell align="center" data-behavior="batch-actions-checkbox-container">
               <%= check_box_tag "batch_action[items][#{resource.id}]", nil, nil,
                 data: { behavior: "batch-actions-checkbox" } %>
             </td>
           <% end %>
           <% @resource_service.attrs_for_index.each do |attr| %>
-            <td>
+            <td md-cell>
               <%= column_value(resource, attr) %>
             </td>
           <% end %>
-          <td>
+          <td md-cell>
             <%= render partial: "#{controller_path}/columns/actions", locals: { resource: resource } %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-</div>
+</md-table-container>

@@ -1,0 +1,35 @@
+$primary-color-hue-1: rgba(25,150,38,1) !default;
+$primary-color-hue-2: rgba(25,150,38,0.8);
+$primary-color-hue-3: rgba(25,150,38,0.6);
+$primary-color-hue-4: rgba(25,150,38,0.4);
+$primary-color-hue-5: rgba(25,150,38,0.2);
+
+$secondary-color-hue-1: rgba(227,13,13,1);
+$secondary-color-hue-2: rgba(227,13,13,0.8);
+$secondary-color-hue-3: rgba(227,13,13,0.6);
+$secondary-color-hue-4: rgba(227,13,13,0.4);
+$secondary-color-hue-5: rgba(227,13,13,0.2);
+
+$grey-hue-1: rgba(250,250,250,1);
+$grey-hue-2: rgba(250,250,250,0.8);
+$grey-hue-3: rgba(250,250,250,0.4);
+$grey-hue-4: rgba(132,132,132,1);
+$grey-hue-5: rgba(99,99,99,1);
+$grey-hue-6: rgba(66,66,66,1);
+
+$background-hue-1: $grey-hue-1;
+$background-hue-2: $grey-hue-2;
+$background-hue-3: $grey-hue-3;
+
+$dark-background-hue-1: $grey-hue-4;
+$dark-background-hue-2: $grey-hue-5;
+$dark-background-hue-3: $grey-hue-6;
+
+$link-color: $grey-hue-4;
+$link-hover-color: $secondary-color-hue-2;
+
+$white: $grey-hue-1;
+$success-color: #4CAF50;
+$error-color: #D32F2F;
+$warn-color: #FFEB3B;
+$info-color: #03A9F4;

@@ -1,0 +1,31 @@
+<!--============================================================
+=            TODO: find a cleaner way of separating the Toolbar and Sidenav versions of the links            =
+==============================================================-->
+
+
+
+
+<% if side %>
+  <ul>
+<% end %>
+
+  <% if side %>
+      <li>
+  <% end %>
+      <%= link_to "<md-button>Home</md-button>".html_safe, root_path %>
+  <% if side %>
+        <md-divider></md-divider>
+      </li>
+  <% end %>
+
+  <% if side %>
+    <% unless current_user.blank? %>
+      <li>
+        <%= link_to('<md-button>Logga ut</md-button>'.html_safe, main_app.destroy_user_session_path, :method => :delete) %>
+      </li>
+    <% end %>
+  <% end %>
+
+<% if side %>
+  </ul>
+<% end %>

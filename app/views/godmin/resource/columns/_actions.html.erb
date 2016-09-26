@@ -1,12 +1,19 @@
-<div class="btn-group btn-group-sm pull-right">
+<div class="md-table-buttons">
   <% if policy(resource).show? %>
-    <%= link_to translate_scoped("actions.show"), [*@resource_parents, resource], class: "btn btn-default" %>
+    <%= link_to("<md-button class='md-icon-button'><md-icon md-svg-icon='eye'></md-icon></md-button>".html_safe,
+      [*@resource_parents, resource]
+    ) %>
   <% end %>
   <% if policy(resource).edit? %>
-    <%= link_to translate_scoped("actions.edit"), [:edit, *@resource_parents, resource], class: "btn btn-default" %>
+    <%= link_to("<md-button class='md-icon-button'><md-icon md-svg-icon='pencil'></md-icon></md-button>".html_safe,
+      [:edit, *@resource_parents, resource]
+    ) %>
   <% end %>
   <% if policy(resource).destroy? %>
-    <%= link_to translate_scoped("actions.destroy"), [*@resource_parents, resource], method: :delete,
-      class: "btn btn-danger", data: { confirm: translate_scoped("actions.confirm_message") } %>
+    <%= link_to("<md-button class='md-icon-button delete-btn'><md-icon md-svg-icon='close-circle'></md-icon></md-button>".html_safe,
+      [*@resource_parents, resource],
+      method: :delete,
+      data: { confirm: translate_scoped("actions.confirm_message") }
+    ) %>
   <% end %>
 </div>

@@ -2,6 +2,8 @@ require "godmin/helpers/application"
 require "godmin/helpers/forms"
 require "godmin/helpers/navigation"
 require "godmin/helpers/translations"
+require "action_view"
+require "action_view/template/resolver"
 
 module Godmin
   module ApplicationController
@@ -25,6 +27,17 @@ module Godmin
     end
 
     def welcome; end
+
+    protected
+
+    def redirect_back
+      case Rails::VERSION::MAJOR
+      when 4
+        redirect_to :back
+      when 5
+        super(fallback_location: root_path)
+      end
+    end
 
     private
 
