@@ -29,6 +29,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "rails", [">= 4.0", "< 6.0"]
   gem.add_dependency "sass-rails", [">= 4.0", "< 6.0"]
   gem.add_dependency "selectize-rails", "~> 0.12"
+  gem.add_dependency "material_icons", "~> 2.2.0"
 
   gem.add_development_dependency "appraisal", "~> 2.1"
   gem.add_development_dependency "capybara", "~> 2.4"
