@@ -1,4 +1,4 @@
-var app = angular.module('godmin', ['ngMaterial', 'md.data.table']);
+var app = angular.module('godmin', ['ngMaterial', 'md.data.table', 'ui.select']);
 
 app.config(['$mdThemingProvider', '$mdIconProvider', '$sceDelegateProvider', function($mdThemingProvider, $mdIconProvider, $sceDelegateProvider) {
 
