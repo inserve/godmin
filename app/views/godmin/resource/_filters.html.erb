@@ -1,5 +1,5 @@
 <% if @resource_service.filter_map.present? %>
-  <md-card id="filters" class="md-whiteframe-z4" layout="row" layout-align="center center">
+  <md-card id="filters" class="md-whiteframe-z4" layout="row" layout-align="center center" layout-wrap>
     <%= filter_form do |f| %>
       <div layout="row" layout-align="center center">
         <%= f.hidden_field :scope, value: params[:scope] %>
