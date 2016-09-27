@@ -31,24 +31,26 @@ app.config(['$mdThemingProvider', '$mdIconProvider', '$sceDelegateProvider', fun
   $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
 }]);
 
-app.controller('GodminController', ['$scope', '$mdSidenav', '$mdDialog', function($scope, $mdSidenav, $mdDialog) {
+app.controller('GodminController', ['$scope', '$mdSidenav', '$mdDialog', '$http', '$window', function($scope, $mdSidenav, $mdDialog, $http, $window) {
   $scope.toggleSidenav = function() {
     $mdSidenav('left').toggle();
   }
 
+  $scope.deleteRow = function(path, id) {
+    $http.delete(path);
+    $window.location.reload();
+  }
+
   $scope.showDialog = function(ev, contentId) {
     $mdDialog.show({
-      controller: DialogController,
       contentElement: contentId,
       parent: angular.element(document.body),
       targetEvent: ev,
       clickOutsideToClose: true
     });
   };
+  $scope.hide = function() {
+    $mdDialog.hide();
+  };
 
-  function DialogController($scope, $mdDialog) {
-    $scope.hide = function() {
-      $mdDialog.hide();
-    };
-  }
 }])

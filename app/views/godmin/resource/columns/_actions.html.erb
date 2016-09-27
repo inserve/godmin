@@ -10,10 +10,25 @@
     ) %>
   <% end %>
   <% if policy(resource).destroy? %>
-    <%= link_to("<md-button class='md-icon-button delete-btn'><md-icon md-svg-icon='close-circle'></md-icon></md-button>".html_safe,
-      resource,
-      method: :delete,
-      data: { confirm: translate_scoped("actions.confirm_message") }
-    ) %>
+    <md-button aria-label="delete row button" ng-click="showDialog($event, '#deleteRowDialog')" class='md-icon-button delete-btn'><md-icon md-svg-icon='close-circle'></md-icon></md-button>
   <% end %>
 </div>
+
+ <div style="visibility: hidden">
+    <div class="md-dialog-container" id="deleteRowDialog">
+      <md-dialog layout-padding>
+        <md-dialog-content>
+          Är du säker att du vill ta bort denna <%= resource.model_name.singular_route_key %>
+        </md-dialog-content>
+        <md-dialog-actions>
+          <md-button ng-click="deleteRow('<%= url_for(resource)  %>', <%= resource.id %>)">
+            Ja
+          </md-button>
+          <!-- hide() hides the currently open Dialog (same as clicking outside) -->
+          <md-button ng-click="hide()">
+            Nej
+          </md-button>
+        </md-dialog-actions>
+      </md-dialog>
+    </div>
+  </div>
