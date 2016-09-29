@@ -2,7 +2,7 @@
   <div class="godmin-material-administration" ng-app="godmin" ng-controller="GodminController" layout="column" layout-fill>
     <md-toolbar class="md-hue-2" layout-align="center center">
       <div class="md-toolbar-tools" layout="row" layout-fill>
-        <md-button hide-gt-md ng-click="toggleSidenav()" class="md-icon-button" aria-label="Settings">
+        <md-button hide-gt-md ng-click="toggleSidenav('left')" class="md-icon-button" aria-label="Settings">
           <md-icon md-svg-icon="menu"></md-icon>
         </md-button>
         <span hide-xs hide-sm hide-md layout-fill layout="row">
@@ -17,7 +17,7 @@
     </md-toolbar>
     <md-sidenav hide-gt-md md-component-id="left" class="md-sidenav-left">
       <md-toolbar layout-align="center start">
-        <md-button aria-label="toggle sidenav button" class="md-icon-button" ng-click="toggleSidenav()">
+        <md-button aria-label="toggle sidenav button" class="md-icon-button" ng-click="toggleSidenav('left')">
           <md-icon md-svg-icon="close"></md-icon>
         </md-button>
       </md-toolbar>

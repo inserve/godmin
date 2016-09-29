@@ -32,8 +32,8 @@ app.config(['$mdThemingProvider', '$mdIconProvider', '$sceDelegateProvider', fun
 }]);
 
 app.controller('GodminController', ['$scope', '$mdSidenav', '$mdDialog', '$http', '$window', function($scope, $mdSidenav, $mdDialog, $http, $window) {
-  $scope.toggleSidenav = function() {
-    $mdSidenav('left').toggle();
+  $scope.toggleSidenav = function(id) {
+    $mdSidenav(id).toggle();
   }
 
   $scope.deleteRow = function(path, id) {
