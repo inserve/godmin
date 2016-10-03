@@ -14,12 +14,12 @@
       aria-label="delete row button"
       ng-click="showServerRenderedDialog(
                   $event,
-                  'Borttagning av <%= resource.humanize %>',
-                  'Är du säker att du vill ta bort denna <%= resource.humanize %>',
+                  'Borttagning av <%= resource %>',
+                  'Är du säker att du vill ta bort denna <%= resource %>',
                   'Removal Warning',
                   'Ja',
                   'Nej',
-                  deleteRow, ['<%= url_for(resource)  %>', <%= resource.id %>]"
+                  deleteRow, ['<%= url_for(resource)  %>', <%= resource.id %>])"
       class='md-icon-button delete-btn'><md-icon md-svg-icon='close-circle'></md-icon></md-button>
   <% end %>
 </div>
