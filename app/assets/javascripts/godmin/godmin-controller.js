@@ -10,24 +10,8 @@ app.config(['$mdThemingProvider', '$mdIconProvider', '$sceDelegateProvider', fun
     '**'
   ]);
 
-  $mdIconProvider.defaultIconSet('//godmin-material.s3-website-eu-west-1.amazonaws.com/icons/mdi.svg');
+  $mdIconProvider.defaultIconSet('//http://s3-eu-west-1.amazonaws.com/godmin-material/icons/mdi.svg');
 
-  // // Extend the cyan theme with a different color
-  // var cyan = $mdThemingProvider.extendPalette('cyan', {
-  //   '500': 'rgba(0, 127, 145, 1)',
-  // });
-  // var cyanAccent = $mdThemingProvider.extendPalette('cyan', {
-  //   'A200': 'rgba(200, 246, 253, 0.8)',
-  //   'contrastDefaultColor': 'light'
-  // });
-
-  // // Register the new color palette map with the name SpartacusCyan
-  // $mdThemingProvider.definePalette('SpartacusCyan', cyan);
-  // $mdThemingProvider.definePalette('SpartacusCyanAccent', cyanAccent);
-  // // Use that theme for the primary intentions
-  // $mdThemingProvider.theme('default')
-  //   .primaryPalette('SpartacusCyan')
-  //   .accentPalette('SpartacusCyanAccent');
   $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
 }]);
 
