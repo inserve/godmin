@@ -41,6 +41,21 @@ app.controller('GodminController', ['$scope', '$mdSidenav', '$mdDialog', '$http'
     $window.location.reload();
   }
 
+  $scope.showServerRenderedDialog = function(ev, title, content, label, ok, cancel, callback, args) {
+    var confirm = $mdDialog.confirm()
+      .title(title)
+      .textContent(content)
+      .ariaLabel(label)
+      .targetEvent(ev)
+      .ok(ok)
+      .cancel(cancel);
+
+    $mdDialog.show(confirm).then(function() {
+      callback.apply(this, args)
+    }, function() {
+    });
+  }
+
   $scope.showDialog = function(ev, contentId) {
     $mdDialog.show({
       contentElement: contentId,
