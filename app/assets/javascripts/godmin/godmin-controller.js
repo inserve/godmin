@@ -10,7 +10,7 @@ app.config(['$mdThemingProvider', '$mdIconProvider', '$sceDelegateProvider', fun
     '**'
   ]);
 
-  $mdIconProvider.defaultIconSet('//http://s3-eu-west-1.amazonaws.com/godmin-material/icons/mdi.svg');
+  $mdIconProvider.defaultIconSet('//s3-eu-west-1.amazonaws.com/godmin-material/icons/mdi.svg');
 
   $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
 }]);
