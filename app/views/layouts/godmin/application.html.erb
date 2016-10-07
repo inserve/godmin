@@ -26,20 +26,7 @@
       </div>
     </md-sidenav>
     <md-content layout="column" layout-align="start center" md-no-flicker md-no-momentum>
-      <% if flash[:alert] %>
-        <div class="alert alert-danger">
-          <%= flash[:alert] %>
-        </div>
-      <% end %>
-
-      <% if flash[:notice] %>
-        <div class="alert alert-info" layout="row" layout-align="center center">
-          <%= flash[:notice] %>
-        </div>
-      <% end %>
-      <div class="container mw">
-        <%= render "layouts/godmin/content" %>
-      </div>
+      <%= render "layouts/godmin/content" %>
     </md-content>
   </div>
 <% end %>
