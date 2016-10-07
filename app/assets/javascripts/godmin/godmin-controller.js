@@ -53,3 +53,55 @@ app.controller('GodminController', ['$scope', '$mdSidenav', '$mdDialog', '$http'
   };
 
 }])
+
+app.directive('search', ['$http', function($http) {
+
+  return {
+    restrict: 'E',
+    scope: {
+      query:        '@',
+      url:          '@',
+      defaultQuery: '@',
+      hiddenName:   '@',
+      firstKey:     '@',
+      secondKey:    '@'
+    },
+    template: "<input ng-model='query' ng-init='query = defaultQuery' ng-keyup='search()' ng-focus='search()' autocomplete='off' />"+
+              "<div ng-if='results.length > 0' class='dropdown md-whiteframe-z4'>"+
+                "<div class='backdrop' ng-click='resetSearch()'></div>"+
+                "<md-button ng-click='selectResult(result)' ng-repeat='result in results' class='result'>"+
+                  "{{firstKey && result[firstKey]}} {{secondKey && result[secondKey]}}"+
+                "</md-button>"+
+              "</div>"+
+              "<input type='hidden' name='{{hiddenName}}' value='{{selectedResult.id}}'>",
+
+    controller: function($scope, $element) {
+
+      $scope.search = function() {
+        if ($scope.query.length == 0) {
+          $scope.results = [];
+        } else {
+          if ($scope.query.length > 2) {
+            $http.get($scope.url + $scope.query).then(function(res) {
+              $scope.results = res.data;
+              console.log(res);
+            });
+          }
+        }
+      }
+
+      $scope.resetSearch = function() {
+        $scope.results = [];
+      }
+      $scope.selectResult = function(result) {
+        $scope.resetSearch();
+        $scope.query =  ($scope.firstKey && !$scope.secondKey) ?
+                          result[$scope.firstKey] :
+                        ($scope.firstKey && $scope.secondKey) ?
+                          result[$scope.firstKey]  + ' ' + result[$scope.secondKey] :
+                        $scope.query;
+        $scope.selectedResult = result;
+      }
+    }
+  };
+}]);

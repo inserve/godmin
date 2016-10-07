@@ -71,18 +71,20 @@
   }
 
   .form-errors {
-      background: rgba(246,51,51,0.2);
-      border: 1px solid rgba(246,51,51,0.4);
-      color: rgba(196,52,1,0.8);
-      width: 70%;
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
+    background: rgba(246,51,51,0.2);
+    border: 1px solid rgba(246,51,51,0.4);
+    color: rgba(196,52,1,0.8);
+    width: 70%;
+    padding: 1em;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
   }
   .alert.alert-info {
     width: 70%;
+    padding: 1em;
     background: $primary-color-hue-2;
     border: 1px solid $primary-color-hue-5;
     color: $white;

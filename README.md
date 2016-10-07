@@ -47,6 +47,32 @@ Notes:
 
 ## Components
 
+### Async search to set related ID
+
+This component requires a custom written `GET` action in your backend alongside the related data being presented via your `@resource` into the view you're searching in.
+Documentation for examples of this is pending.
+
+In your view add this markup
+
+```
+  <div ng-app="godmin">
+    <search
+      url="/path/to/api/get-request?q="
+      default-query="<%= @resource.related_resource ? @resource.related_resource.name : '' %>"
+      hidden-name="account[contact_id]"
+      first-key="firstname"
+      second-key="lastname" />
+  </div>
+```
+
+| Attribute name  | Value specification                                                                                                                                                       |
+|---------------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------  |
+| url             | string, url to the api get route                                                                                                                                          |
+| default-query   | This can be anything from a default value to, prefferably and as the example here shows, the value from the @resource provided via the resource service                   |
+| hidden-name     | the name for the hidden input, this should be resource_name[column_name], see example above                                                                                                  |
+| first-key       | the first key for the related resource to show, for example first-key='firstname' would result in the displayed value in the results will be related_resource.firstname   |
+| second-key      | see first-key, never use this without first setting the above
+
 ### Dialog
 
 If you require dialogs (modals) in your custom CRUD views you can write a Dialog Component:
