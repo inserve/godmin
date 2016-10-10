@@ -1,4 +1,4 @@
-var app = angular.module('godmin', ['ngMaterial', 'md.data.table', 'ui.select', 'ngFileUpload']);
+var app = angular.module('godmin', ['ngMaterial', 'md.data.table', 'ui.select', 'angular-file-upload']);
 
 app.config(['$mdThemingProvider', '$mdIconProvider', '$sceDelegateProvider', function($mdThemingProvider, $mdIconProvider, $sceDelegateProvider) {
 
