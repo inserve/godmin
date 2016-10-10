@@ -90,6 +90,15 @@
     color: $white;
   }
 
+  .navigation {
+    .md-sidenav-backdrop {
+      z-index: 79;
+    }
+    md-sidenav {
+      z-index: 80;
+    }
+  }
+
   md-sidenav {
     .brand-logo {
       color: #FFFFFF;
