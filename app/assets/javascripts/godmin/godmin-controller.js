@@ -54,6 +54,24 @@ app.controller('GodminController', ['$scope', '$mdSidenav', '$mdDialog', '$http'
 
 }])
 
+app.directive('flash', ['$document', '$mdToast', function($document, $mdToast) {
+
+  function link(scope, element, attrs) {
+    $mdToast.show(
+      $mdToast.simple()
+        .textContent(attrs.message)
+        .position(attrs.position || 'bottom left')
+        .hideDelay(4000)
+    );
+  }
+
+  return {
+    restrict: 'E',
+    transclude: true,
+    link: link
+  }
+}]);
+
 app.directive('search', ['$http', function($http) {
 
   return {
