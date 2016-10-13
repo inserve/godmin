@@ -91,6 +91,11 @@
   }
 
   .navigation {
+    md-toolbar {
+      @media (min-width:0) and (max-width:959px){
+        min-height: 56px !important;
+      }
+    }
     .md-sidenav-backdrop {
       z-index: 80;
     }
