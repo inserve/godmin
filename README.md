@@ -49,7 +49,7 @@ Notes:
 
 ### Async search to set related ID
 
-This component requires a custom written `GET` action in your backend alongside the related data being presented via your `@resource` into the view you're searching in.
+This component requires a custom written `PUT` action in your backend alongside the related data being presented via your `@resource` into the view you're searching in.
 Documentation for examples of this is pending.
 
 In your view add this markup
@@ -57,7 +57,7 @@ In your view add this markup
 ```
   <div ng-app="godmin">
     <search
-      url="/path/to/api/get-request?q="
+      url="/path/to/api/put-request"
       default-query="<%= @resource.related_resource ? @resource.related_resource.name : '' %>"
       hidden-name="account[contact_id]"
       first-key="firstname"
