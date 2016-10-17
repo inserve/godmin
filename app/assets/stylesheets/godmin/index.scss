@@ -47,9 +47,6 @@
     }
   }
 
-  .md-list-item-text {
-  }
-
   .img-crop {
     overflow: hidden;
     height: 300px;
@@ -71,11 +68,14 @@
   }
 
   .form-errors {
-    background: rgba(246,51,51,0.2);
-    border: 1px solid rgba(246,51,51,0.4);
-    color: rgba(196,52,1,0.8);
-    width: 70%;
+    background: rgb(215, 85, 64);
+    color: rgba(255, 255, 255, 0.8);
     padding: 1em;
+    md-icon {
+      fill: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.4);
+      margin: 8px;
+    }
     ul {
       list-style: none;
       padding: 0;
