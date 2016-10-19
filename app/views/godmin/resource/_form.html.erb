@@ -13,7 +13,9 @@
 	  <% @resource_service.attrs_for_form.each do |attribute| %>
 			    <% if f.object.class.reflect_on_association(attribute) %>
 			      <%= f.association attribute %>
-			    <% else %>
+			    <% elsif @resource.column_for_attribute(attribute).type == :boolean %>
+			      	<%= f.input attribute %>
+					<% else %>
 		  			<md-input-container>
 			      	<%= f.input attribute %>
 		  			</md-input-container>
