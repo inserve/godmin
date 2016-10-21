@@ -1,23 +1,28 @@
 <% content_for :body do %>
-  <div class="godmin-material-administration" ng-app="godmin" ng-controller="GodminController" layout="column" layout-fill ng-cloak>
-    <span class="navigation">
-      <md-toolbar class="md-hue-2" layout-align="center center">
-        <div class="md-toolbar-tools" layout="row" layout-fill>
-          <md-button hide-gt-md ng-click="toggleSidenav('left')" class="md-icon-button" aria-label="Settings">
-            <md-icon md-svg-icon="menu"></md-icon>
-          </md-button>
-          <span hide-xs hide-sm hide-md layout-fill layout="row">
-            <%= render partial: File.join(engine_wrapper.namespaced_path, "shared/navigation"), locals: {side: false} %>
-          </span>
-          <span flex></span>
-          <%= render partial: File.join(engine_wrapper.namespaced_path, "shared/navigation_aside") %>
-          <% unless current_user.blank? %>
-            <%= link_to('<md-button hide-xs hide-sm>Logga ut</md-button>'.html_safe, main_app.destroy_user_session_path, :method => :get) %>
-          <% end %>
-        </div>
-      </md-toolbar>
-      <md-sidenav hide-gt-md md-component-id="left" class="md-sidenav-left">
-        <md-toolbar layout-align="center start">
+  <div class="godmin-material-administration" 
+       ng-app="godmin" 
+       ng-controller="GodminController" 
+       layout="column" 
+       layout-fill 
+       ng-cloak>
+    <md-toolbar class="md-hue-2" layout-align="center center">
+      <div class="md-toolbar-tools" layout="row" layout-fill>
+        <md-button hide-gt-md ng-click="toggleSidenav('left')" class="md-icon-button" aria-label="Settings">
+          <md-icon md-svg-icon="menu"></md-icon>
+        </md-button>
+        <span hide-xs hide-sm hide-md hide-lg layout-fill layout="row">
+          <%= render partial: File.join(engine_wrapper.namespaced_path, "shared/navigation"), locals: {side: false} %>
+        </span>
+        <span flex></span>
+        <%= render partial: File.join(engine_wrapper.namespaced_path, "shared/navigation_aside") %>
+        <% unless current_account.blank? %>
+          <%= link_to('<md-button>Logga ut</md-button>'.html_safe, main_app.destroy_account_session_path, :method => :get) %>
+        <% end %>
+      </div>
+    </md-toolbar>
+    <div layout="row" style="height: 100%;">
+      <md-sidenav md-is-locked-open="$mdMedia('lg')" md-component-id="left" class="md-sidenav-left md-whiteframe-z1">
+        <md-toolbar hide-gt-md layout-align="center start">
           <md-button aria-label="toggle sidenav button" class="md-icon-button" ng-click="toggleSidenav('left')">
             <md-icon md-svg-icon="close"></md-icon>
           </md-button>
@@ -26,10 +31,12 @@
           <%= render partial: File.join(engine_wrapper.namespaced_path, "shared/navigation"), locals: {side: true} %>
         </div>
       </md-sidenav>
-    </span>
-    <md-content layout="column" layout-align="start center" md-no-flicker md-no-momentum>
-      <%= render "layouts/godmin/content" %>
-    </md-content>
+      <md-content layout="row" layout-align="start start" layout-fill md-no-flicker md-no-momentum>
+        <div class="container mw">
+          <%= render "layouts/godmin/content" %>
+        </div>
+      </md-content>
+    </div>
   </div>
 <% end %>
 <%= render "layouts/godmin/layout" %>

@@ -105,8 +105,13 @@
   }
 
   md-sidenav {
+    z-index: 81;
     .brand-logo {
       color: #FFFFFF;
+    }
+    &.md-locked-open {
+      height: 100%;
+      z-index: 1;
     }
     div {
       ul {
