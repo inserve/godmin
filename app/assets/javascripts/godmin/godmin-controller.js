@@ -93,7 +93,7 @@ app.directive('search', ['$http', function($http) {
               "</div>"+
               "<input type='hidden' name='{{hiddenName}}' value='{{selectedResult.id}}'>",
 
-    controller: function($scope, $element) {
+    controller: ['$scope', '$element', function($scope, $element) {
 
       $scope.search = function() {
         if ($scope.query.length == 0) {
@@ -120,6 +120,6 @@ app.directive('search', ['$http', function($http) {
                         $scope.query;
         $scope.selectedResult = result;
       }
-    }
+    }]
   };
 }]);
