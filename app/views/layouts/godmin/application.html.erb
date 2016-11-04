@@ -15,8 +15,8 @@
         </span>
         <span flex></span>
         <%= render partial: File.join(engine_wrapper.namespaced_path, "shared/navigation_aside") %>
-        <% unless current_account.blank? %>
-          <%= link_to('<md-button>Logga ut</md-button>'.html_safe, main_app.destroy_account_session_path, :method => :get) %>
+        <% unless current_user.blank? %>
+          <%= link_to('<md-button>Logga ut</md-button>'.html_safe, main_app.destroy_user_session_path, :method => :get) %>
         <% end %>
       </div>
     </md-toolbar>
