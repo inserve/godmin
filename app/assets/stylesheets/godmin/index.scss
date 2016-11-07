@@ -267,8 +267,8 @@
     .md-body {
       .md-row {
         transition: background 0.25s;
-        &:nth-child(odd) {
-          background: $grey-hue-4;
+        &:nth-child(even) {
+          background: $grey-hue-3;
         }
         &:hover {
           background: $primary-color-hue-5;
