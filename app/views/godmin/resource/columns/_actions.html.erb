@@ -1,25 +1,34 @@
-<div class="md-table-buttons">
-  <% if policy(resource).show? %>
-    <%= link_to("<md-button class='md-icon-button'><md-icon md-svg-icon='eye'></md-icon></md-button>".html_safe,
-      resource
-    ) %>
-  <% end %>
-  <% if policy(resource).edit? %>
-    <%= link_to("<md-button class='md-icon-button'><md-icon md-svg-icon='pencil'></md-icon></md-button>".html_safe,
-      [:edit, resource]
-    ) %>
-  <% end %>
-  <% if policy(resource).destroy? %>
-    <md-button
-      aria-label="delete row button"
-      ng-click="showServerRenderedDialog(
-                  $event,
-                  'Borttagning av <%= resource %>',
-                  'Är du säker att du vill ta bort denna <%= resource %>',
-                  'Removal Warning',
-                  'Ja',
-                  'Nej',
-                  deleteRow, ['<%= url_for(resource)  %>', <%= resource.id %>])"
-      class='md-icon-button delete-btn'><md-icon md-svg-icon='close-circle'></md-icon></md-button>
-  <% end %>
-</div>
+<md-menu md-position-mode="target-right target">
+  <!-- Trigger element is a md-button with an icon -->
+  <md-button ng-click="$mdOpenMenu($event)" class="md-primary">
+    <%= translate_scoped('actions.label') %>
+  </md-button>
+  <md-menu-content>
+    <% if policy(resource).show? %>
+      <md-menu-item>
+        <%= link_to("<md-icon md-svg-icon='eye'></md-icon>#{translate_scoped("actions.show")}".html_safe,
+          resource,
+          class: 'md-button'
+        ) %>
+      </md-menu-item>
+    <% end %>
+    <% if policy(resource).edit? %>
+      <md-menu-item>
+        <%= link_to("<md-icon md-svg-icon='pencil'></md-icon>#{translate_scoped("actions.edit")}".html_safe,
+          [:edit, resource],
+          class: 'md-button'
+        ) %>
+      </md-menu-item>
+    <% end %>
+    <% if policy(resource).destroy? %>
+      <md-menu-item>
+        <md-button aria-label="delete row button"
+          ng-click="showServerRenderedDialog($event, 'Borttagning av <%= resource %>', 'Är du säker att du vill ta bort denna <%= resource %>', 'Removal Warning', 'Ja', 'Nej', deleteRow, ['<%= url_for(resource)  %>', <%= resource.id %>])"
+          class='md-warn'>
+          <md-icon md-svg-icon='close-circle'></md-icon>
+          <%= translate_scoped("actions.destroy") %>
+        </md-button>
+      </md-menu-item>
+    <% end %>
+  </md-menu-content>
+</md-menu>

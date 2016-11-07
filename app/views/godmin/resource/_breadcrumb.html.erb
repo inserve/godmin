@@ -2,14 +2,14 @@
   <div class="md-breadcrumb flat">
     <% if action_name == "index" %>
         <a class="active">
-          <%= @resource_class.model_name.human(count: 2).pluralize %>
+          <%= @resource_class.model_name.human(count: 2) %>
         </a>
     </div>
     <% else %>
-        <%= link_to @resource_class.model_name.human(count: 2).pluralize, @resource_class %>
+        <%= link_to @resource_class.model_name.human(count: 2), @resource_class %>
         <a class="active">
           <% if @resource.new_record? %>
-            <%= t("helpers.submit.create", model: @resource_class.model_name.human).pluralize %>
+            <%= t("helpers.submit.create", model: @resource_class.model_name.human) %>
           <% else %>
             <%= @resource.to_s %>
           <% end %>
@@ -19,7 +19,7 @@
       <md-menu md-position-mode="target-right target">
         <!-- Trigger element is a md-button with an icon -->
         <md-button ng-click="$mdOpenMenu($event)" class="md-primary">
-          Actions
+          <%= translate_scoped("actions.label") %>
         </md-button>
         <md-menu-content width="2">
           <% if policy(@resource).show? && action_name != "show" %>

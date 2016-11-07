@@ -10,7 +10,7 @@
             <%= column_header attr %>
           </th>
         <% end %>
-        <th md-column class="actions">Actions</th>
+        <th md-column class="actions"><%= translate_scoped('actions.label') %></th>
       </tr>
     </thead>
     <tbody md-body>
@@ -27,7 +27,7 @@
               <%= column_value(resource, attr) %>
             </td>
           <% end %>
-          <td md-cell>
+          <td md-cell class="actions">
             <%= render partial: "#{controller_path}/columns/actions", locals: { resource: resource } %>
           </td>
         </tr>

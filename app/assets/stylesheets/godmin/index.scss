@@ -261,7 +261,7 @@
       color: $primary-color-hue-1;
       text-decoration: none;
       &:hover {
-        color: $secondary-color-hue-3;
+        color: $primary-color-hue-3;
       }
     }
     .md-body {
@@ -340,56 +340,56 @@
     border-radius: 5px;
     counter-reset: flag;
     height: 36px;
-  }
-  .md-breadcrumb > a {
-    text-decoration: none;
-    outline: none;
-    display: block;
-    float: left;
-    font-size: 12px;
-    line-height: 36px;
-    color: $white;
-    padding: 0 10px 0 60px;
-    position: relative;
-  }
-  .md-breadcrumb > a:first-child {
-    padding-left: 46px;
-    border-radius: 5px 0 0 5px;
-  }
-  .md-breadcrumb > a:first-child::before {
-    left: 14px;
-  }
-  .md-breadcrumb > a:last-child {
-    border-radius: 0 5px 5px 0;
-    padding-right: 20px;
-  }
-  .md-breadcrumb > a:last-child::after {
-    content: none;
-  }
-  .md-breadcrumb > a::before {
-    content: counter(flag);
-    counter-increment: flag;
-    border-radius: 100%;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    margin: 8px 0;
-    position: absolute;
-    top: 0;
-    left: 30px;
-    font-weight: bold;
-  }
-  .md-breadcrumb > a::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -18px;
-    width: 36px;
-    height: 36px;
-    transform: scale(0.707) rotate(45deg);
-    z-index: 1;
-    box-shadow: 2px -2px 0 2px $grey-hue-2;
-    border-radius: 0 5px 0 50px;
+    & > a {
+      text-decoration: none;
+      outline: none;
+      display: block;
+      float: left;
+      font-size: 12px;
+      line-height: 36px;
+      color: $white;
+      padding: 0 10px 0 60px;
+      position: relative;
+      &:first-child {
+        padding-left: 46px;
+        border-radius: 5px 0 0 5px;
+        &::before {
+          left: 14px;
+        }
+      }
+      &:last-child {
+        border-radius: 0 5px 5px 0;
+        padding-right: 20px;
+        &::after {
+          content: none;
+        }
+      }
+      &::before {
+        content: counter(flag);
+        counter-increment: flag;
+        border-radius: 100%;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        margin: 8px 0;
+        position: absolute;
+        top: 0;
+        left: 30px;
+        font-weight: bold;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -18px;
+        width: 36px;
+        height: 36px;
+        transform: scale(0.707) rotate(45deg);
+        z-index: 1;
+        box-shadow: 2px -2px 0 2px $grey-hue-2;
+        border-radius: 0 5px 0 50px;
+      }
+    }
   }
   .flat a,
   .flat a::after {

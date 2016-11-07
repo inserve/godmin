@@ -77,6 +77,7 @@ app.directive('search', ['$http', function($http) {
   return {
     restrict: 'E',
     scope: {
+      model:        '=',
       query:        '@',
       url:          '@',
       defaultQuery: '@',
@@ -102,7 +103,6 @@ app.directive('search', ['$http', function($http) {
           if ($scope.query.length > 2) {
             $http.put($scope.url, {q: $scope.query}).then(function(res) {
               $scope.results = res.data;
-              console.log(res);
             });
           }
         }
@@ -119,6 +119,9 @@ app.directive('search', ['$http', function($http) {
                           result[$scope.firstKey]  + ' ' + result[$scope.secondKey] :
                         $scope.query;
         $scope.selectedResult = result;
+        if($scope.model) {
+          $scope.model(result);
+        } 
       }
     }]
   };
