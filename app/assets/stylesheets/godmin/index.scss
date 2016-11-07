@@ -268,10 +268,10 @@
       .md-row {
         transition: background 0.25s;
         &:nth-child(odd) {
-          background: $grey-hue-3;
+          background: $grey-hue-4;
         }
         &:hover {
-          background: $grey-hue-2;
+          background: $primary-hue-5;
         }
       }
     }
