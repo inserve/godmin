@@ -3,17 +3,23 @@
     <nav>
       <ul class="pagination">
         <% unless @resource_service.paginator.pages.first == 1 && @resource_service.paginator.current_page == @resource_service.paginator.pages.first %>
-          <li><%= link_to translate_scoped("pagination.first"), params.to_unsafe_h.merge(page: 1) %></li>
-          <li class="pagination-icon"><%= link_to "<md-icon md-svg-icon='chevron-left'></md-icon>".html_safe, params.to_unsafe_h.merge(page: @resource_service.paginator.current_page - 1) %></li>
+          <li><%= link_to translate_scoped("pagination.first"), params.to_unsafe_h.merge(page: 1), class: "md-primary md-button"  %></li>
+          <li class="pagination-icon"><%= link_to "<md-icon class='md-button md-primary md-hue-2 md-icon-button md-mini' md-svg-icon='chevron-left'></md-icon>".html_safe, params.to_unsafe_h.merge(page: @resource_service.paginator.current_page - 1) %></li>
         <% end %>
         <% @resource_service.paginator.pages.each do |page| %>
-          <li class="<%= "active" if page == @resource_service.paginator.current_page %>">
-            <%= link_to page, params.to_unsafe_h.merge(page: page) %>
-          </li>
+          <% if page == @resource_service.paginator.current_page %>
+            <li class="active">
+              <%= link_to page, params.to_unsafe_h.merge(page: page), class: "md-primary md-button md-fab md-mini" %>
+            </li>
+            <% else %>
+            <li class="">
+              <%= link_to page, params.to_unsafe_h.merge(page: page), class: "md-button md-icon-button md-mini" %>
+            </li>
+          <% end %>
         <% end %>
         <% unless @resource_service.paginator.pages.last == @resource_service.paginator.total_pages && @resource_service.paginator.current_page == @resource_service.paginator.pages.last %>
-          <li class="pagination-icon"><%= link_to "<md-icon md-svg-icon='chevron-right'></md-icon>".html_safe, params.to_unsafe_h.merge(page: @resource_service.paginator.current_page + 1) %></li>
-          <li><%= link_to translate_scoped("pagination.last"), params.to_unsafe_h.merge(page: @resource_service.paginator.total_pages) %></li>
+          <li class="pagination-icon"><%= link_to "<md-icon class='md-button md-primary md-hue-2 md-icon-button md-mini' md-svg-icon='chevron-right'></md-icon>".html_safe, params.to_unsafe_h.merge(page: @resource_service.paginator.current_page + 1) %></li>
+          <li><%= link_to translate_scoped("pagination.last"), params.to_unsafe_h.merge(page: @resource_service.paginator.total_pages), class: "md-primary md-button" %></li>
         <% end %>
       </ul>
     </nav>

@@ -11,7 +11,22 @@ app.config(['$mdThemingProvider', '$mdIconProvider', '$sceDelegateProvider', fun
   ]);
 
   $mdIconProvider.defaultIconSet('//s3-eu-west-1.amazonaws.com/godmin-material/icons/mdi.svg');
+  
+  // Extend the purple theme with a different color
+  // var purple = $mdThemingProvider.extendPalette('purple', {
+  //   '500': 'rgba(131,24,120, 1)',
+  // });
+  // var purpleAccent = $mdThemingProvider.extendPalette('purple', {
+  //   'A200': 'rgba(200, 246, 253, 0.8)',
+  //   'contrastDefaultColor': 'light'
+  // });
 
+  // // Register the new color palette map with the name SpartacusPurple
+  // $mdThemingProvider.definePalette('SpartacusPurple', purple);
+  // $mdThemingProvider.definePalette('SpartacusPurpleAccent', purpleAccent);
+  // Use that theme for the primary intentions
+  $mdThemingProvider.theme('default')
+    .primaryPalette('purple')
   $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
 }]);
 

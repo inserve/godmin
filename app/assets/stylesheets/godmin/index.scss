@@ -14,36 +14,36 @@
 .godmin-material-administration {
 
   md-toolbar.md-default-theme.md-hue-2:not(.md-menu-toolbar), md-toolbar.md-hue-2:not(.md-menu-toolbar) {
-    background-color: $primary-color-hue-1;
-    color: $grey-hue-1;
+    /*background-color: $primary-color-hue-1;*/
+    /*color: $grey-hue-1;*/
   }
 
   md-content {
-    background: $background-hue-1;
+    /*background: $background-hue-1;*/
   }
   .md-button.md-primary {
-    color: $primary-color-hue-1;
+    /*color: $primary-color-hue-1;*/
   }
   .md-button.md-raised.md-primary {
     color: $grey-hue-1;
-    background-color: $primary-color-hue-1;
+    /*background-color: $primary-color-hue-1;*/
     &:hover {
-      background-color: $primary-color-hue-2;
+      /*background-color: $primary-color-hue-2;*/
     }
   }
 
   md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label, md-input-container:not(.md-input-invalid).md-input-focused label, md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon, md-input-container:not(.md-input-invalid).md-input-focused md-icon {
-    color: $primary-color-hue-1;
+    /*color: $primary-color-hue-1;*/
   }
   md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input, md-input-container:not(.md-input-invalid).md-input-focused .md-input, md-input-container.md-default-theme:not(.md-input-invalid).md-input-resized .md-input, md-input-container:not(.md-input-invalid).md-input-resized .md-input {
-    border-color: $primary-color-hue-1;
+    /*border-color: $primary-color-hue-1;*/
   }
 
   md-icon.gmd-primary {
-    color: $primary-color-hue-1;
+    /*color: $primary-color-hue-1;*/
     &.md-avatar-icon {
-      background: $primary-color-hue-1;
-      color: $white;
+      /*background: $primary-color-hue-1;*/
+      /*color: $white;*/
     }
   }
 
@@ -85,8 +85,8 @@
   .alert.alert-info {
     width: 70%;
     padding: 1em;
-    background: $primary-color-hue-2;
-    border: 1px solid $primary-color-hue-5;
+    /*background: $primary-color-hue-2;*/
+    /*border: 1px solid $primary-color-hue-5;*/
     color: $white;
   }
 
@@ -107,7 +107,7 @@
   md-sidenav {
     z-index: 81;
     .brand-logo {
-      color: #FFFFFF;
+      /*color: #FFFFFF;*/
     }
     &.md-locked-open {
       height: 100%;
@@ -121,7 +121,7 @@
           a {
             width: 100%;
             display: block;
-            color: $primary-color-hue-1;
+            /*color: $primary-color-hue-1;*/
             .md-button {
               margin: 0;
               padding: 1em;
@@ -134,9 +134,9 @@
     }
   }
 
-  md-content {
+  /*md-content {
     background-color: transparent;
-  }
+  }*/
 
   .md-toolbar-tools {
     .md-button {
@@ -161,7 +161,7 @@
     }
   }
 
-  input[type='submit'], .filter-btns a {
+  /*input[type='submit'], .filter-btns a {
     &:focus, &:hover, &:active:focus {
       outline: none;
     }
@@ -206,7 +206,7 @@
     &:hover {
       background-color: $primary-color-hue-2;
     }
-  }
+  }*/
 
   #filters {
     md-input-container {
@@ -223,30 +223,24 @@
         display: inline-block;
         list-style: none;
         &.active a {
-          background: $primary-color-hue-1;
-          color: $grey-hue-1;
           text-decoration: none;
         }
-        a {
-          padding: 1em;
-          color: $primary-color-hue-1;
-          margin-right: 3px;
-          border-radius: 0;
-          line-height: 24px;
-          text-decoration: none;
-          &:hover {
-            cursor: pointer;
-            background-color: $secondary-color-hue-2;
-            color: $grey-hue-1;
+        &.inactive {
+          a {
+            padding: 1em;
+            margin-right: 3px;
+            border-radius: 0;
+            line-height: 24px;
+            text-decoration: none;
+            &:hover {
+              cursor: pointer;
+            }
           }
         }
       }
       .pagination-icon {
         a {
           line-height: 1.42857143 !important;
-          md-icon {
-            color: $primary-color-hue-1;
-          }
         }
       }
     }
@@ -258,18 +252,11 @@
       padding-right: 40px !important;
     }
     a {
-      color: $primary-color-hue-1;
       text-decoration: none;
-      &:hover {
-        color: $primary-color-hue-3;
-      }
     }
     .md-body {
       .md-row {
         transition: background 0.25s;
-        &:nth-child(even) {
-          background: $grey-hue-3;
-        }
         &:hover {
           background: $primary-color-hue-5;
         }

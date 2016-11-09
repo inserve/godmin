@@ -12,7 +12,7 @@
   <% if side %>
       <li>
   <% end %>
-      <%= link_to "<md-button>Home</md-button>".html_safe, root_path %>
+      <%= link_to "<md-button class='md-primary'>Home</md-button>".html_safe, root_path %>
   <% if side %>
         <md-divider></md-divider>
       </li>
@@ -21,7 +21,7 @@
   <% if side %>
     <% unless current_user.blank? %>
       <li>
-        <%= link_to('<md-button>Logga ut</md-button>'.html_safe, main_app.destroy_user_session_path, :method => :delete) %>
+        <%= link_to("<md-button class='md-primary'>Logga ut</md-button>".html_safe, main_app.destroy_user_session_path, :method => :delete) %>
       </li>
     <% end %>
   <% end %>

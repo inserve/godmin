@@ -7,7 +7,7 @@ require "godmin/version"
 Gem::Specification.new do |gem|
   gem.name        = "godmin"
   gem.version     = Godmin::VERSION
-  gem.authors     = ["Jens Ljungblad", "Linus Pettersson", "Varvet"]
+  gem.authors     = ["Jens Ljungblad", "Linus Pettersson", "Varvet", "Emil Hernqvist", "Inserve"]
   gem.email       = ["info@varvet.se"]
   gem.homepage    = "https://github.com/varvet/godmin"
   gem.summary     = "Godmin is an admin framework for Rails 4+"
