@@ -12,3 +12,4 @@
 //
 
 //= require godmin/godmin-controller
+//= require godmin/theme

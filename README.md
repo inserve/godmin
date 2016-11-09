@@ -22,6 +22,14 @@ This is a fork of the Godmin admin framework with the purpose of implementing Ma
 
 ## Configuration
 
+### Angular Material color overrides
+
+The default Angular Material theme can be found in 
+[app/assets/javascripts/godmin/theme.js](https://github.com/inserve/godmin-material/tree/master/app/assets/javascripts/godmin/theme.js)
+
+If you haven't already, create a controller in `~/yourapp/app/assets/javascripts/example-controller.js`. Copy the contents from the above source and 
+override the `rgba()` values with your own colors. It also supports hex values (#FFFFFF).
+
 ### SASS color overrides
 
 All the SASS variables can be found in [app/assets/stylesheets/godmin/variables.scss](https://github.com/inserve/godmin-material/tree/master/app/assets/stylesheets/godmin/variables.scss)
@@ -30,11 +38,11 @@ and you can override them like so:
 
 - Create or copy the Godmin-Material variables.scss inside /yourapp/app/assets/stylesheets/
 
-`in /yourapp/app/assets/stylesheets/application.scss`
 
 ```
-  @import "variables";
-  @import "godmin/index";
+  ~/yourapp/app/assets/stylesheets/application.scss
+  @import 'variables';
+  @import 'godmin/index';
 ```
 
 You can now override any of the given variables in your own local `variables.scss` and refresh the admin interface to see the reflected changes.
