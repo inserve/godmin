@@ -38,6 +38,9 @@
                 data: { confirm: translate_scoped("actions.confirm_message")}, class: 'md-button'  %>
             </md-menu-item>
           <% end %>
+          <md-menu-item>
+            <%= link_to t("helpers.submit.create", model: @resource.model_name.human), [:create, @resource], class: 'md-button'  %>
+          </md-menu-item>
         </md-menu-content>
       </md-menu>
     <% end %>
