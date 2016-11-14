@@ -79,6 +79,7 @@ app.directive('search', ['$http', function($http) {
       query:        '@',
       url:          '@',
       defaultQuery: '@',
+      defaultId: '@',
       hiddenName:   '@',
       firstKey:     '@',
       secondKey:    '@'
@@ -90,7 +91,7 @@ app.directive('search', ['$http', function($http) {
                   "{{firstKey && result[firstKey]}} {{secondKey && result[secondKey]}}"+
                 "</md-button>"+
               "</div>"+
-              "<input type='hidden' name='{{hiddenName}}' value='{{selectedResult.id}}'>",
+              "<input type='hidden' name='{{hiddenName}}' value='{{defaultId ? defaultId : selectedResult.id}}'>",
 
     controller: ['$scope', '$element', function($scope, $element) {
 
@@ -111,9 +112,9 @@ app.directive('search', ['$http', function($http) {
       }
       $scope.selectResult = function(result) {
         $scope.resetSearch();
-        $scope.query =  ($scope.firstKey && !$scope.secondKey) ?
+        $scope.query =  (result[$scope.firstKey] && !result[$scope.secondKey]) ?
                           result[$scope.firstKey] :
-                        ($scope.firstKey && $scope.secondKey) ?
+                        (result[$scope.firstKey] && result[$scope.secondKey]) ?
                           result[$scope.firstKey]  + ' ' + result[$scope.secondKey] :
                         $scope.query;
         $scope.selectedResult = result;
