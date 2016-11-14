@@ -3,27 +3,33 @@
 		<md-card-title>
 			<md-card-title-text>
 				<% if params['action'] == 'edit' %>
-					<h3>Ändring av: <%= @resource %> </h3>
+					<h3>Ändring av:
+                        <% if @resource.respond_to?(:as_title) %>
+                            <%= @resource.as_title %>
+                        <% else %>
+                            <%= @resource.to_s %>
+                        <% end %>
+                    </h3>
 				<% else %>
 					<h3>Skapande av <%= @resource_class.model_name.human(count: 2) %> </h3>
 				<% end %>
 			</md-card-title-text>
 		</md-card-title>
 		<md-card-content>
-	  <% @resource_service.attrs_for_form.each do |attribute| %>
+	        <% @resource_service.attrs_for_form.each do |attribute| %>
 			    <% if f.object.class.reflect_on_association(attribute) %>
-			      <%= f.association attribute %>
+			        <%= f.association attribute %>
 			    <% elsif @resource.has_attribute?(attribute) && @resource.column_for_attribute(attribute).type == :boolean %>
 			      	<%= f.input attribute %>
-					<% else %>
+				<% else %>
 		  			<md-input-container>
-			      	<%= f.input attribute %>
+			      	    <%= f.input attribute %>
 		  			</md-input-container>
 			    <% end %>
-	  <% end %>
+	        <% end %>
 		</md-card-content>
 		<md-card-actions>
-  		<md-button class="md-primary" type="submit">Save</md-button>
+  		    <md-button class="md-primary" type="submit">Save</md-button>
 		</md-card-actions>
 	</md-card>
 <% end %>

@@ -10,13 +10,15 @@
         <a class="active">
           <% if @resource.new_record? %>
             <%= t("helpers.submit.create", model: @resource_class.model_name.human) %>
+          <% elsif @resource.respond_to? :as_title %>
+              <%= @resource.as_title %>
           <% else %>
-            <%= @resource.to_s %>
+              <%= @resource.to_s %>
           <% end %>
         </a>
-    </div>
-    <% if @resource.persisted? %>
-      <md-menu md-position-mode="target-right target">
+</div>
+<% if @resource.persisted? %>
+    <md-menu md-position-mode="target-right target">
         <!-- Trigger element is a md-button with an icon -->
         <md-button ng-click="$mdOpenMenu($event)" class="md-primary">
           <%= translate_scoped("actions.label") %>

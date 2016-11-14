@@ -33,6 +33,10 @@ module Godmin
             column_value = t(column_value.to_s)
           end
 
+          if column_value.is_a?(ActiveRecord::Base) && column_value.respond_to?(:as_title)
+            column_value = column_value.as_title
+          end
+          
           column_value
         end
       end

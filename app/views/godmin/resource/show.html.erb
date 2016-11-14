@@ -4,22 +4,28 @@
   <md-card-content>
     <md-card-title>
       <md-card-title-text>
-        <span class="md-headline"><%= @resource.to_s %></span>
+          <span class="md-headline">
+              <% if @resource.respond_to? :as_title  %>
+                  <%= @resource.as_title %>
+              <% else %>
+                  <%= @resource.to_s %>
+              <% end %>
+          </span>
       </md-card-title-text>
     </md-card-title>
     <md-list layout="row" layout-wrap>
-      <% @resource_service.attrs_for_show.each do |attr| %>
-      <md-list-item class="md-2-line" flex="100" flex-gt-xs="33">
-        <div class="md-list-item-text" ng-class="md-offset">
-          <h3><%= @resource_class.human_attribute_name(attr) %></h3>
-          <% if attr == :url %>
-            <a href="#"><%= column_value(@resource, attr) %></a>
-          <% else %>
-            <p><%= column_value(@resource, attr) %></p>
-          <% end %>
-        </div>
-      </md-list-item>
-      <% end %>
+        <% @resource_service.attrs_for_show.each do |attr| %>
+            <md-list-item class="md-2-line" flex="100" flex-gt-xs="33">
+                <div class="md-list-item-text" ng-class="md-offset">
+                    <h3><%= @resource_class.human_attribute_name(attr) %></h3>
+                    <% if attr == :url %>
+                        <a href="#"><%= column_value(@resource, attr) %></a>
+                    <% else %>
+                        <p><%= column_value(@resource, attr) %></p>
+                    <% end %>
+                </div>
+            </md-list-item>
+        <% end %>
     </md-list>
   </md-card-content>
 </md-card>
