@@ -28,9 +28,9 @@ module Godmin
         case association_type(attribute)
         when :belongs_to
           select("#{attribute}_id", association_collection_for_select(attribute), options, html_options.deep_merge(
-            data: { behavior: "select-box" }
-          ))
-        else
+                   data: { behavior: "select-box" }
+                 ))
+        else 
           input(attribute, options)
         end
       end
@@ -70,7 +70,13 @@ module Godmin
       end
 
       def association_collection_for_select(attribute)
-        association_collection(attribute).map { |a| [a.to_s, a.id] }
+        association_collection(attribute).map do |a|
+          if a.respond_to?(:as_title)
+            a.as_title
+          else
+            [a.to_s, a.id]
+          end
+        end
       end
 
       def datetime_value(attribute, options, format)
