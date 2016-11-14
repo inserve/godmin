@@ -98,7 +98,7 @@ app.directive('search', ['$http', function($http) {
         if ($scope.query.length == 0) {
           $scope.results = [];
         } else {
-          if ($scope.query.length > 2) {
+          if ($scope.query.length >= 2) {
             $http.put($scope.url, {q: $scope.query}).then(function(res) {
               $scope.results = res.data;
             });
