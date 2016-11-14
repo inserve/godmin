@@ -39,7 +39,7 @@
             </md-menu-item>
           <% end %>
           <md-menu-item>
-            <%= link_to t("helpers.submit.create", model: @resource.model_name.human), [:create, @resource], class: 'md-button'  %>
+            <%= link_to t("helpers.submit.create", model: @resource.model_name.human), [:new, @resource], class: 'md-button'  %>
           </md-menu-item>
         </md-menu-content>
       </md-menu>
