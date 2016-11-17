@@ -172,6 +172,14 @@
         &:hover {
           background: $primary-color-hue-5;
         }
+        &[ng-click] {
+          &:hover {
+            cursor: pointer;
+          }
+          &:focus {
+            outline: 0;
+          }
+        }
       }
     }
     .md-table-buttons {
