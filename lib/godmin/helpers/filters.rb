@@ -28,7 +28,6 @@ module Godmin
             name: "filter[#{name}]",
             label: @template.translate_scoped("filters.labels.#{name}", default: name.to_s.titleize),
             value: default_filter_value(name),
-            placeholder: @template.translate_scoped("filters.labels.#{name}", default: name.to_s.titleize),
             wrapper_class: "filter"
           }.deep_merge(html_options)
         )
