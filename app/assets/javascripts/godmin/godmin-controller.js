@@ -1,4 +1,4 @@
-var app = angular.module('godmin', ['ngMaterial', 'md.data.table', 'ui.select', 'ngFileUpload', 'ngSanitize', 'luegg.directives', 'ngQuill']);
+var app = angular.module('godmin', ['dependencies']);
 
 app.config(['$mdThemingProvider', '$mdIconProvider', '$sceDelegateProvider', function ($mdThemingProvider, $mdIconProvider, $sceDelegateProvider) {
 
