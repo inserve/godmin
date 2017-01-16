@@ -68,8 +68,8 @@ module Godmin
         @resource_service.destroy_resource(@resource)
 
         respond_to do |format|
-          format.html { redirect_to redirect_after_destroy, notice: redirect_flash_message }
-          format.json { head :no_content }
+          format.html { redirect_to redirect_after_destroy, notice: redirect_flash_message, status: :see_other }
+          format.json { render json: { redirectTo: url_for(@resource_class) } }
         end
       end
 
@@ -155,7 +155,7 @@ module Godmin
       end
 
       def redirect_after_destroy
-        resource_class.model_name.route_key.to_sym
+        resource_class.model_name.plural.to_sym
       end
 
       def redirect_flash_message

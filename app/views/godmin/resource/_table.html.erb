@@ -15,7 +15,7 @@
     </thead>
     <tbody md-body>
       <% @resources.each do |resource| %>
-        <tr md-row data-resource-id="<%= resource.id %>" class="<%= "highlight" if flash[:updated_ids] && flash[:updated_ids].include?(resource.id) %>">
+        <tr ng-click="redirectTo('<%= url_for resource %>')" md-row data-resource-id="<%= resource.id %>" class="<%= "highlight" if flash[:updated_ids] && flash[:updated_ids].include?(resource.id) %>">
           <% if @resource_service.include_batch_actions? %>
             <td md-cell align="center" data-behavior="batch-actions-checkbox-container">
               <%= check_box_tag "batch_action[items][#{resource.id}]", nil, nil,

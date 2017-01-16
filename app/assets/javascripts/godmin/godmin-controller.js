@@ -18,9 +18,14 @@ app.controller('GodminController', ['$scope', '$mdSidenav', '$mdDialog', '$http'
     $mdSidenav(id).toggle();
   }
 
-  $scope.deleteRow = function (path, id) {
-    $http.delete(path);
-    $window.location.reload();
+  $scope.deleteRow = function (path, id, redirectionPath) {
+    $http.delete(path + ".json").then(function (res) {
+      $scope.redirectTo(res.data.redirectTo);
+    });
+  }
+
+  $scope.redirectTo = function (path) {
+    $window.location.href = path;
   }
 
   $scope.showServerRenderedDialog = function (ev, title, content, label, ok, cancel, callback, args) {
