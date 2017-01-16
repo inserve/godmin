@@ -39,7 +39,7 @@
               <md-button aria-label="delete row button"
                 ng-click="showServerRenderedDialog($event, 'Borttagning av <%= @resource %>', 'Är du säker att du vill ta bort denna <%= @resource %>', 'Removal Warning', 'Ja', 'Nej', deleteRow, ['<%= url_for(@resource)  %>', <%= @resource.id %>, '<%= url_for(@resource.model_name.plural) %>'])"
                 class='md-warn'>
-                <md-icon md-svg-icon='close-circle'></md-icon>
+                <md-icon>close-circle</md-icon>
                 <%= translate_scoped("actions.destroy") %>
               </md-button>
             </md-menu-item>

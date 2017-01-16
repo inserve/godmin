@@ -8,7 +8,7 @@
     <md-toolbar class="md-hue-2" layout-align="center center">
       <div class="md-toolbar-tools" layout="row" layout-fill>
         <md-button hide-gt-md ng-click="toggleSidenav('left')" class="md-icon-button" aria-label="Settings">
-          <md-icon md-svg-icon="menu"></md-icon>
+          <md-icon>menu</md-icon>
         </md-button>
         <span hide-xs hide-sm hide-md hide-lg layout-fill layout="row">
           <%= render partial: File.join(engine_wrapper.namespaced_path, "shared/navigation"), locals: {side: false} %>
@@ -24,7 +24,7 @@
       <md-sidenav md-is-locked-open="$mdMedia('lg')" md-component-id="left" class="md-sidenav-left md-whiteframe-z1">
         <md-toolbar hide-gt-md layout-align="center start">
           <md-button aria-label="toggle sidenav button" class="md-icon-button" ng-click="toggleSidenav('left')">
-            <md-icon md-svg-icon="close"></md-icon>
+            <md-icon>close</md-icon>
           </md-button>
         </md-toolbar>
         <div>

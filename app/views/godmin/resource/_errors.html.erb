@@ -1,11 +1,11 @@
 <% if errors.present? %>
   <md-card class="form-errors" layout="row" layout-align="space-between center">
-    <md-icon class="material-icons" md-svg-icon="alert-box"></md-icon>
+    <md-icon>alert-box</md-icon>
     <ul>
       <% errors.full_messages.each do |error| %>
         <li><%= error %></li>
       <% end %>
     </ul>
-    <md-icon class="material-icons" md-svg-icon="alert-box"></md-icon>
+    <md-icon>alert-box</md-icon>
   </md-card>
 <% end %>

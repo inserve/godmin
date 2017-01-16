@@ -10,7 +10,10 @@ app.config(['$mdThemingProvider', '$mdIconProvider', '$sceDelegateProvider', fun
     '**'
   ]);
 
-  $mdIconProvider.defaultIconSet('//s3-eu-west-1.amazonaws.com/godmin-material/icons/mdi.svg');
+  // $mdIconProvider.defaultIconSet('//s3-eu-west-1.amazonaws.com/godmin-material/icons/mdi.svg');
+  // angular.config(function($mdIconProvider) {
+  //   $mdIconProvider.fontSet('md', 'material-icons');
+  // });
 }]);
 
 app.controller('GodminController', ['$scope', '$mdSidenav', '$mdDialog', '$http', '$window', function ($scope, $mdSidenav, $mdDialog, $http, $window) {
