@@ -6,7 +6,7 @@
   <md-menu-content>
     <% if policy(resource).show? %>
       <md-menu-item>
-        <%= link_to("<md-icon md-svg-icon='eye'></md-icon>#{translate_scoped("actions.show")}".html_safe,
+        <%= link_to("<md-icon>eye</md-icon>#{translate_scoped("actions.show")}".html_safe,
           resource,
           class: 'md-button'
         ) %>
@@ -14,7 +14,7 @@
     <% end %>
     <% if policy(resource).edit? %>
       <md-menu-item>
-        <%= link_to("<md-icon md-svg-icon='pencil'></md-icon>#{translate_scoped("actions.edit")}".html_safe,
+        <%= link_to("<md-icon>pencil</md-icon>#{translate_scoped("actions.edit")}".html_safe,
           [:edit, resource],
           class: 'md-button'
         ) %>
@@ -25,7 +25,7 @@
         <md-button aria-label="delete row button"
           ng-click="showServerRenderedDialog($event, 'Borttagning av <%= resource %>', 'Är du säker att du vill ta bort denna <%= resource %>', 'Removal Warning', 'Ja', 'Nej', deleteRow, ['<%= url_for(resource)  %>', <%= resource.id %>])"
           class='md-warn'>
-          <md-icon md-svg-icon='close-circle'></md-icon>
+          <md-icon>close-circle</md-icon>
           <%= translate_scoped("actions.destroy") %>
         </md-button>
       </md-menu-item>

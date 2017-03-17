@@ -1,0 +1,1 @@
+angular.module('dependencies', ['ngMaterial', 'md.data.table', 'ngFileUpload', 'ngSanitize', 'luegg.directives', 'ngQuill'])

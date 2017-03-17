@@ -22,6 +22,19 @@ This is a fork of the Godmin admin framework with the purpose of implementing Ma
 
 ## Configuration
 
+### Dependecy overrides
+
+The default dependencies can be overriden by creating a `dependencies.js` file in your `~/yourapp/app/assets/javascripts/` folder.
+An example dependency array looks like this: 
+
+```
+angular.module('dependencies', ['ngMaterial', 'md.data.table', 'ngFileUpload', 'ngSanitize', 'luegg.directives', 'ngQuill'])
+```
+
+this is also the current default in [app/assets/javascripts/godmin/dependencies.js](https://github.com/inserve/godmin-material/tree/master/app/assets/javascripts/godmin/dependencies.js)
+
+You might also need/want to change the default CDN dependencies. This can be done by creating a `_dependencies.html.erb` partial in `~/yourapp/app/views/layouts/godmin/` (note the underscore in front of the name, it's important to declare the file as a partial).
+
 ### Angular Material color overrides
 
 The default Angular Material theme can be found in 

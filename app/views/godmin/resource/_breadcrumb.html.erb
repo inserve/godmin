@@ -36,8 +36,12 @@
           <% end %>
           <% if policy(@resource).destroy? %>
             <md-menu-item>
-              <%= link_to translate_scoped("actions.destroy"), @resource, method: :delete,
-                data: { confirm: translate_scoped("actions.confirm_message")}, class: 'md-button'  %>
+              <md-button aria-label="delete row button"
+                ng-click="showServerRenderedDialog($event, 'Borttagning av <%= @resource %>', 'Är du säker att du vill ta bort denna <%= @resource %>', 'Removal Warning', 'Ja', 'Nej', deleteRow, ['<%= url_for(@resource)  %>', <%= @resource.id %>, '<%= url_for(@resource.model_name.plural) %>'])"
+                class='md-warn'>
+                <md-icon>close-circle</md-icon>
+                <%= translate_scoped("actions.destroy") %>
+              </md-button>
             </md-menu-item>
           <% end %>
           <md-menu-item>

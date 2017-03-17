@@ -11,5 +11,6 @@
 // about supported directives.
 //
 
+//= require godmin/dependencies
 //= require godmin/godmin-controller
 //= require godmin/theme

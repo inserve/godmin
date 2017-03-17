@@ -1,4 +1,4 @@
-var app = angular.module('godmin', ['ngMaterial', 'md.data.table', 'ui.select', 'ngFileUpload', 'ngSanitize', 'luegg.directives', 'ngQuill']);
+var app = angular.module('godmin', ['dependencies']);
 
 app.config(['$mdThemingProvider', '$mdIconProvider', '$sceDelegateProvider', function ($mdThemingProvider, $mdIconProvider, $sceDelegateProvider) {
 
@@ -10,7 +10,10 @@ app.config(['$mdThemingProvider', '$mdIconProvider', '$sceDelegateProvider', fun
     '**'
   ]);
 
-  $mdIconProvider.defaultIconSet('//s3-eu-west-1.amazonaws.com/godmin-material/icons/mdi.svg');
+  // $mdIconProvider.defaultIconSet('//s3-eu-west-1.amazonaws.com/godmin-material/icons/mdi.svg');
+  // angular.config(function($mdIconProvider) {
+  //   $mdIconProvider.fontSet('md', 'material-icons');
+  // });
 }]);
 
 app.controller('GodminController', ['$scope', '$mdSidenav', '$mdDialog', '$http', '$window', function ($scope, $mdSidenav, $mdDialog, $http, $window) {
@@ -18,9 +21,14 @@ app.controller('GodminController', ['$scope', '$mdSidenav', '$mdDialog', '$http'
     $mdSidenav(id).toggle();
   }
 
-  $scope.deleteRow = function (path, id) {
-    $http.delete(path);
-    $window.location.reload();
+  $scope.deleteRow = function (path, id, redirectionPath) {
+    $http.delete(path + ".json").then(function (res) {
+      $scope.redirectTo(res.data.redirectTo);
+    });
+  }
+
+  $scope.redirectTo = function (path) {
+    $window.location.href = path;
   }
 
   $scope.showServerRenderedDialog = function (ev, title, content, label, ok, cancel, callback, args) {
@@ -99,9 +107,13 @@ app.directive('search', ['$http', function ($http) {
           $scope.results = [];
         } else {
           if ($scope.query.length >= 2) {
-            $http.put($scope.url, {
-              q: $scope.query
-            }).then(function (res) {
+            $http(
+            {
+              url: $scope.url,
+              method: 'GET',
+              params: $scope.query
+            }
+            ).then(function (res) {
               $scope.results = res.data;
             });
           }
