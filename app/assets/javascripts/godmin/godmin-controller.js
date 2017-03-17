@@ -27,7 +27,8 @@ app.controller('GodminController', ['$scope', '$mdSidenav', '$mdDialog', '$http'
     });
   }
 
-  $scope.redirectTo = function (path) {
+  $scope.redirectTo = function (ev, path) {
+    ev.stopPropagation();
     $window.location.href = path;
   }
 
