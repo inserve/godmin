@@ -4,7 +4,7 @@
       <ul class="pagination">
         <% unless @resource_service.paginator.pages.first == 1 && @resource_service.paginator.current_page == @resource_service.paginator.pages.first %>
           <li><%= link_to translate_scoped("pagination.first"), params.to_unsafe_h.merge(page: 1), class: "md-primary md-button"  %></li>
-          <li class="pagination-icon"><%= link_to "<md-icon class='md-button md-primary md-hue-2 md-icon-button md-mini'>chevron_left</md-icon>".html_safe, params.to_unsafe_h.merge(page: @resource_service.paginator.current_page - 1) %></li>
+          <li class="pagination-icon"><%= link_to "<md-button class='md-button md-primary md-hue-2 md-icon-button md-mini'><md-icon>chevron_left</md-icon></md-button>".html_safe, params.to_unsafe_h.merge(page: @resource_service.paginator.current_page - 1) %></li>
         <% end %>
         <% @resource_service.paginator.pages.each do |page| %>
           <% if page == @resource_service.paginator.current_page %>
@@ -18,7 +18,7 @@
           <% end %>
         <% end %>
         <% unless @resource_service.paginator.pages.last == @resource_service.paginator.total_pages && @resource_service.paginator.current_page == @resource_service.paginator.pages.last %>
-          <li class="pagination-icon"><%= link_to "<md-icon class='md-button md-primary md-hue-2 md-icon-button md-mini'>chevron_right</md-icon>".html_safe, params.to_unsafe_h.merge(page: @resource_service.paginator.current_page + 1) %></li>
+          <li class="pagination-icon"><%= link_to "<md-button class='md-button md-primary md-hue-2 md-icon-button md-mini'><md-icon>chevron_right</md-icon></md-button>".html_safe, params.to_unsafe_h.merge(page: @resource_service.paginator.current_page + 1) %></li>
           <li><%= link_to translate_scoped("pagination.last"), params.to_unsafe_h.merge(page: @resource_service.paginator.total_pages), class: "md-primary md-button" %></li>
         <% end %>
       </ul>
