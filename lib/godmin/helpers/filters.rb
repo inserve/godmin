@@ -77,7 +77,7 @@ module Godmin
 
       def filter_select(name, options, html_options)
         unless options[:collection].is_a? Proc
-          raise "A collection proc must be specified for select filters"
+          raise "A collection proc must be specified for select filter #{name}, received #{options[:collection].class}: #{options[:collection]}"
         end
 
         # We need to dup this here because we later delete some properties
